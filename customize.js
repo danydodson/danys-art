@@ -67,7 +67,7 @@ const config = {
   ========================================= */
   comments: {
     facebook: {
-      enabled: true,
+      enabled: false,
       appId: process.env.FB_APP_ID
     },
     disqus: {
