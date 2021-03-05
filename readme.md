@@ -1,11 +1,3 @@
-<p align="center">
-  <a href="https://github.com/EllisMin/gatsby-blog-mdx">
-    <img alt="icon" src="assets/icon-code-rainbow.png" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  gatsby-blog-mdx
-</h1>
 
 ## Description
 
@@ -19,11 +11,7 @@ A ready-to-use, customizable personal blog with minimalistic design
 
 - Simple blog with responsive design
 
-  ![](/assets/readme-images/imac-phone.png)
-
 - Light / Dark Mode Switch
-
-  ![](/assets/readme-images/theme-chg.gif)
 
 - Fast !
 
