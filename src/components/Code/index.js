@@ -2,19 +2,17 @@ import React, { useState, useEffect } from 'react'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
-import {
-  calculateLinesToHighlight,
-  highlightLine,
-  linesToHighlight,
-  addClassName
-} from './highlight-line'
+import { calculateLinesToHighlight, highlightLine, linesToHighlight, addClassName } from './highlight-line'
 
 import './styles/main.scss'
 
 const comments = ['//highlight-start', '//highlight-end']
+
 // Remote highlight comments
 const removeHighlightComments = line => {
+
   let newStr = line
+
   const trimmed = line.replace(/\s/g, '')
 
   comments.forEach(comment => {
@@ -37,15 +35,20 @@ const removeHighlightComments = line => {
 }
 
 const Code = ({ codeString, language, metastring, ...props }) => {
+
   const [copyBtnText, setCopyBtnText] = useState('Copy')
+
   const [copyText, setCopyText] = useState('')
+
   const [loadingText, setLoadingText] = useState(false)
 
   // Set up texts to be copied on copy button
   useEffect(() => {
+
     let newStr = ''
     // Remove highlight comments
     let line = ''
+
     for (let i = 0; i < codeString.length; i++) {
       const c = codeString.charAt(i)
       if (c === '\n') {

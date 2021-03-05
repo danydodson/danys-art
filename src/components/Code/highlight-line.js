@@ -1,6 +1,7 @@
 import rangeParser from 'parse-numeric-range'
 
 // Toggles true when line has // highlight-start. Turns false with // highlight-end
+
 let highlightStart = false
 
 const highlightClassName = 'gatsby-highlight-code-line'

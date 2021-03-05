@@ -5,6 +5,7 @@
 
 $backgroundColor: #2d323e;
 $bgColorBorder: #43485f;
+
 $base0: #ddd;
 $base1: #fa69e5;
 $base2: #6efa83;
@@ -21,7 +22,7 @@ $base6: #e48080;
   border-top-left-radius: 0.3em;
   border-top-right-radius: 0.3em;
   background: $backgroundColor;
-  color: $base0;
+  color: $base5;
   border-top: 1px solid $bgColorBorder;
   border-right: 1px solid $bgColorBorder;
   border-left: 1px solid $bgColorBorder;
@@ -327,4 +328,5 @@ pre[class*="language-"] {
   .token-line:not(:last-child) {
     min-height: 1.025rem;
   }
+  
 }
