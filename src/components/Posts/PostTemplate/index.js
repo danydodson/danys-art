@@ -74,10 +74,7 @@ class PostTemplate extends React.Component {
       script.setAttribute('repo', repo)
       script.setAttribute('issue-term', 'pathname')
       script.setAttribute('label', 'blog-comment')
-      script.setAttribute(
-        'theme',
-        `${theme.curTheme === 'dark' ? 'github-dark' : 'github-light'}`
-      )
+      script.setAttribute('theme', `${theme.curTheme === 'dark' ? 'github-dark' : 'github-light'}`)
       this.utterancesRef.current.appendChild(script)
     }
   }
@@ -94,7 +91,7 @@ class PostTemplate extends React.Component {
     // Set as state to unmount script
     this.setState({ script: script })
     document.body.appendChild(script)
-    window.fbAsyncInit = function() {
+    window.fbAsyncInit = function () {
       window.FB.init({
         appId: comments.facebook.appId,
         autoLogAppEvents: true,
@@ -401,10 +398,10 @@ const StyledHTML = styled.div`
           height: 0.75rem;
           margin-right: 0.5rem;
           fill: ${() =>
-            setThemeVars(
-              configStyles.fontColorLight,
-              configStyles.fontColorDark
-            )};
+    setThemeVars(
+      configStyles.fontColorLight,
+      configStyles.fontColorDark
+    )};
         }
       }
       span.ul-children {
