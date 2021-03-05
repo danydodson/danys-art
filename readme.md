@@ -25,7 +25,7 @@ A ready-to-use, customizable personal blog with minimalistic design
 
 - Code syntax highlighting (Light / Dark)
 
-  ![](/assets/readme-images/light-dark-code.png)
+  <!-- ![](/static/readme-images/light-dark-code.png) -->
 
 - Comments plugins
 
@@ -100,7 +100,7 @@ A ready-to-use, customizable personal blog with minimalistic design
 
 ```
 .
-├── assets             # Contains profile image & favicon
+├── static             # Contains profile image & favicon
 ├── posts              # All of your posts goes in here as well as any other files
 ├── src                 # All the front-end source code
 ├── customize.js        # ----> Modify this to customize your blog

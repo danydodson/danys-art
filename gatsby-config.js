@@ -27,8 +27,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `assets`,
-        path: `${__dirname}/assets`
+        name: `static`,
+        path: `${__dirname}/static`
       }
     },
 
@@ -79,7 +79,7 @@ module.exports = {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /assets/
+          include: /static/
         }
       }
     },

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import ArrowDown from '../../../../assets/icons/arrow-down.svg'
+import ArrowDown from '../../../../static/icons/arrow-down.svg'
 import Button from '../../Button'
 import { setThemeVars } from '../../../util/theme-helper'
 import { theme } from '../../Shared/styles-global'

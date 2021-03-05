@@ -22,7 +22,7 @@ import ToggleMode from '../../Layout/ToggleMode'
 import { theme } from '../../Shared/styles-global'
 import LinkEdgePosts from '../../LinkEdgePosts'
 import ShareButtons from '../../ShareButtons'
-import ChevronRight from '../../../../assets/icons/chevron-right.svg'
+import ChevronRight from '../../../../static/icons/chevron-right.svg'
 import {
   Primary,
   Danger,

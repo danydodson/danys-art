@@ -3,7 +3,7 @@ import Switch from 'react-switch'
 import { withTheme } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon } from '@fortawesome/free-solid-svg-icons'
-import SunIcon from '../../../assets/icons/sun.svg'
+import SunIcon from '../../../static/icons/sun.svg'
 import config from '../../../customize'
 
 import './styles.scss'

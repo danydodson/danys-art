@@ -85,7 +85,7 @@ const config = {
   defaultTheme: 'light',
   breakCodeLines: true, // Breaks lines instead of having horizontal scroll
   showTimeToRead: true,
-  faviconSrc: `assets/icon-code.png`,
+  faviconSrc: `static/favicon.png`,
   gaTrackingId: process.env.GOOGLE_TRACKING_ID,
   googleAdSenseId: process.env.GOOGLE_AD_SENSE_ID
 }
