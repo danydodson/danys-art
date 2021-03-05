@@ -1,28 +1,28 @@
-import React from "react"
-import { graphql } from "gatsby"
-import { MDXProvider } from "@mdx-js/react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import styled from "styled-components"
-import mediumZoom from "medium-zoom"
-import storage from "local-storage-fallback"
-import { isMobile } from "react-device-detect"
-import { setThemeVars } from "../../../util/theme-helper"
-import { comments } from "../../../../customize"
-import configStyles from "../../../../customize-styles"
-import Layout from "../../Layout"
-import Hr from "../../Hr"
-import Profile from "../../Profile"
-import SEO from "../../SEO"
+import React from 'react'
+import { graphql } from 'gatsby'
+import { MDXProvider } from '@mdx-js/react'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import styled from 'styled-components'
+import mediumZoom from 'medium-zoom'
+import storage from 'local-storage-fallback'
+import { isMobile } from 'react-device-detect'
+import { setThemeVars } from '../../../util/theme-helper'
+import { comments } from '../../../../customize'
+import configStyles from '../../../../customize-styles'
+import Layout from '../../Layout'
+import HRuler from '../../HRuler'
+import Profile from '../../Profile'
+import SEO from '../../SEO'
 import {
   FacebookComments,
   DisqusComments,
-  UtterancesComments,
-} from "../../Comments"
-import ToggleMode from "../../Layout/ToggleMode"
-import { theme } from "../../Shared/styles-global"
-import LinkEdgePosts from "../../LinkEdgePosts"
-import ShareButtons from "../../ShareButtons"
-import ChevronRight from "../../../../_assets/icons/chevron-right.svg"
+  UtterancesComments
+} from '../../Comments'
+import ToggleMode from '../../Layout/ToggleMode'
+import { theme } from '../../Shared/styles-global'
+import LinkEdgePosts from '../../LinkEdgePosts'
+import ShareButtons from '../../ShareButtons'
+import ChevronRight from '../../../../assets/icons/chevron-right.svg'
 import {
   Primary,
   Danger,
@@ -30,17 +30,17 @@ import {
   Success,
   Info,
   Collapsable,
-  U,
-} from "../../MdxComponents"
+  U
+} from '../../MdxComponents'
 
 class PostTemplate extends React.Component {
   constructor(props) {
     super(props)
     this.utterancesRef = React.createRef()
     this.state = {
-      location: "",
+      location: '',
       script: undefined,
-      texts: [],
+      texts: []
     }
   }
 
@@ -67,16 +67,16 @@ class PostTemplate extends React.Component {
   registerUtterancesComments = repo => {
     // Register utterances if it exists
     if (this.utterancesRef.current) {
-      const script = document.createElement("script")
-      script.src = "https://utteranc.es/client.js"
+      const script = document.createElement('script')
+      script.src = 'https://utteranc.es/client.js'
       script.async = true
-      script.crossOrigin = "anonymous"
-      script.setAttribute("repo", repo)
-      script.setAttribute("issue-term", "pathname")
-      script.setAttribute("label", "blog-comment")
+      script.crossOrigin = 'anonymous'
+      script.setAttribute('repo', repo)
+      script.setAttribute('issue-term', 'pathname')
+      script.setAttribute('label', 'blog-comment')
       script.setAttribute(
-        "theme",
-        `${theme.curTheme === "dark" ? "github-dark" : "github-light"}`
+        'theme',
+        `${theme.curTheme === 'dark' ? 'github-dark' : 'github-light'}`
       )
       this.utterancesRef.current.appendChild(script)
     }
@@ -86,11 +86,11 @@ class PostTemplate extends React.Component {
     // Unregister if already exists
     this.unregisterFacebookComments()
     // Register facebook comments sdk
-    const script = document.createElement("script")
-    script.src = "https://connect.facebook.net/en_US/sdk.js"
+    const script = document.createElement('script')
+    script.src = 'https://connect.facebook.net/en_US/sdk.js'
     script.async = true
     script.defer = true
-    script.crossOrigin = "anonymous"
+    script.crossOrigin = 'anonymous'
     // Set as state to unmount script
     this.setState({ script: script })
     document.body.appendChild(script)
@@ -99,7 +99,7 @@ class PostTemplate extends React.Component {
         appId: comments.facebook.appId,
         autoLogAppEvents: true,
         xfbml: true,
-        version: "v6.0",
+        version: 'v6.0'
       })
     }
   }
@@ -108,7 +108,7 @@ class PostTemplate extends React.Component {
     // Unmount script and comments div
     if (this.state.script) {
       document.body.removeChild(this.state.script)
-      const fbRoot = document.getElementById("fb-root")
+      const fbRoot = document.getElementById('fb-root')
 
       if (fbRoot) {
         document.body.removeChild(fbRoot)
@@ -123,46 +123,46 @@ class PostTemplate extends React.Component {
   }
 
   zoomImages = () => {
-    const targetImg = "img"
-    const targetGatsbyImg = "gatsby-resp-image-image"
+    const targetImg = 'img'
+    const targetGatsbyImg = 'gatsby-resp-image-image'
     const images = Array.from(document.querySelectorAll(targetImg))
     const filteredImages = []
     for (let i = 0; i < images.length; i++) {
       const img = images[i]
       // Filter profile image
-      const profile = document.querySelector(".img-profile")
+      const profile = document.querySelector('.img-profile')
       if (profile) {
         const isProfile = profile.contains(img)
         if (!isProfile) {
           // Set maximum width/height to non-gatsby images
           if (!img.classList.contains(targetGatsbyImg)) {
-            img.classList.add("img-not-gatsby-remark")
+            img.classList.add('img-not-gatsby-remark')
           }
           filteredImages.push(img)
         }
       }
     }
 
-    let mediumZoomBgColor = ""
-    const savedTheme = JSON.parse(storage.getItem("theme")) || "light"
+    let mediumZoomBgColor = ''
+    const savedTheme = JSON.parse(storage.getItem('theme')) || 'light'
     mediumZoomBgColor =
-      savedTheme.mode === "light" ? theme.bgColorLight : theme.bgColorDark
+      savedTheme.mode === 'light' ? theme.bgColorLight : theme.bgColorDark
 
     // Apply medium zoom to images
     mediumZoom(filteredImages, {
       margin: 24,
-      background: mediumZoomBgColor,
+      background: mediumZoomBgColor
     })
   }
 
   // Move anchor headings to the right side on mobile
   moveAnchorHeadings = () => {
-    const target = ".anchor-heading"
+    const target = '.anchor-heading'
     const anchors = Array.from(document.querySelectorAll(target))
     anchors.forEach(anchor => {
       anchor.parentNode.appendChild(anchor)
-      anchor.classList.add("after")
-      anchor.classList.remove("before")
+      anchor.classList.add('after')
+      anchor.classList.remove('before')
     })
   }
 
@@ -176,18 +176,18 @@ class PostTemplate extends React.Component {
         }
       })
       return {
-        texts: updatedTexts,
+        texts: updatedTexts
       }
     })
   }
 
   render() {
     const post = this.props.data.mdx
-    const isAboutPage = post.fields.slug.includes("/about")
+    const isAboutPage = post.fields.slug.includes('/about')
 
     // Customize markdown component
     const mdxComponents = {
-      "ul.li": ({ children }) => {
+      'ul.li': ({ children }) => {
         return (
           <li>
             <span className="icon-wrap">
@@ -197,14 +197,14 @@ class PostTemplate extends React.Component {
           </li>
         )
       },
-      "ol.li": ({ children }) => {
+      'ol.li': ({ children }) => {
         return (
           <li>
             <span>{children}</span>
           </li>
         )
       },
-      hr: () => <Hr widthInPercent="100" verticalMargin="0.8rem" />,
+      hr: () => <HRuler widthInPercent="100" verticalMargin="0.8rem" />,
       // Use the below components without having to import in *.mdx
       Primary,
       Danger,
@@ -212,7 +212,7 @@ class PostTemplate extends React.Component {
       Success,
       Info,
       Collapsable,
-      U,
+      U
     }
 
     return (
@@ -220,7 +220,7 @@ class PostTemplate extends React.Component {
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <div
           className="switch-container"
-          style={{ textAlign: "end", margin: "0 1.1rem" }}
+          style={{ textAlign: 'end', margin: '0 1.1rem' }}
         >
           <ToggleMode />
         </div>
@@ -232,24 +232,24 @@ class PostTemplate extends React.Component {
               <div
                 className="post-data"
                 style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginBottom: "0.5rem",
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  marginBottom: '0.5rem'
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <div style={{ display: "flex", flexWrap: "wrap" }}>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                     {post.frontmatter.tags &&
                       post.frontmatter.tags.map((tag, i) => (
                         <p
                           key={i}
                           style={{
-                            margin: "0.3rem 0.3rem",
-                            padding: "0.15rem 0.4rem",
-                            border: "1px solid #aaa",
-                            borderRadius: "5px",
-                            fontSize: "0.8rem",
+                            margin: '0.3rem 0.3rem',
+                            padding: '0.15rem 0.4rem',
+                            border: '1px solid #aaa',
+                            borderRadius: '5px',
+                            fontSize: '0.8rem'
                           }}
                         >
                           {tag}
@@ -259,15 +259,15 @@ class PostTemplate extends React.Component {
                 </div>
                 <p
                   style={{
-                    fontStyle: "italic",
-                    margin: "0",
-                    marginBottom: "0.3rem",
+                    fontStyle: 'italic',
+                    margin: '0',
+                    marginBottom: '0.3rem'
                   }}
                 >
                   {post.frontmatter.date}
                 </p>
               </div>
-              <Hr />
+              <HRuler />
             </>
           )}
           {/* Render mdx */}
@@ -280,9 +280,9 @@ class PostTemplate extends React.Component {
           <>
             <ShareButtons location={this.state.location} />
             <LinkEdgePosts pageContext={this.props.pageContext} />
-            <Hr widthInPercent="97" verticalMargin="0.8rem" />
+            <HRuler widthInPercent="97" verticalMargin="0.8rem" />
             <Profile />
-            <Hr widthInPercent="97" verticalMargin="0.8rem" />
+            <HRuler widthInPercent="97" verticalMargin="0.8rem" />
 
             {comments.facebook.enabled && (
               <FacebookComments
@@ -316,7 +316,7 @@ export const postQuery = graphql`
       }
       frontmatter {
         title
-        date(formatString: "MM/DD/YYYY")
+        date(formatString: "MMM D YYYY")
         tags
       }
     }

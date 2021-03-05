@@ -1,59 +1,93 @@
-/* Customization Guide available on:
+/* Customization Guide available on: 
   https://gatsby-blog-mdx.now.sh/2020/05/4-customize/
   ======================================== */
 const config = {
   /* Site
   ========================================= */
-  title: `gatsby-blog-mdx`,          // Displayed in header
-  description: `This is my blog`,     // Site description
-  maxWidth: 768,                  // Max width of website
-  // maxWidth: "768px",                  // Max width of website
-  enableAbout: true,                  // Enables about page
-  siteUrl: `https://yourDomain.com/`, // For sitemap & RSS feed
-  useScrollIndicator: true,           // Use scroll indicator on top of screen in posts
+  title: `dany dodson`,
+  description: `This is my blog`,
+  maxWidth: 768,
+  enableAbout: true,
+  siteUrl: `https://danys.art/`,
+  useScrollIndicator: true,
 
   /* Profile
   ========================================= */
-  author: `Author Name`,                             // Name shows on profile
-  profileDescription: "{Edit me in customize.js}",   // Shows under author name
-  profileImageName: `profile.jpeg`,                  // Place profile.jpg/.jpeg/.png in _assets folder
-  location: "",                                      // Location under profileDescription. "" --> disabled
-  footerLink: "",                                    // Link to page when you click footer name
+  author: `Dany Dodson`,
+  profileDescription: '{ Full Stack Developer }',
+  profileImageName: `profile.jpg`,
+  location: 'Evansville, IN',
+  footerLink: 'about',
 
   /* Social Media Links
-      accountName & emailAddress: leave blank ("") to disable
-      showHeaderIcon: shows social media icon in header. When true, must have account name set
   ========================================= */
   socialMediaLinks: {
-    email:     { emailAddress: "", showHeaderIcon: true },
-    github:    { accountName: "", showHeaderIcon: true },
-    facebook:  { accountName: "", showHeaderIcon: true },
-    instagram: { accountName: "", showHeaderIcon: true },
-    twitter:   { accountName: "", showHeaderIcon: true },
-    linkedIn:  { accountName: "", showHeaderIcon: true },   // Use URL after "linkedin.com/"
-    medium:    { accountName: "", showHeaderIcon: true },   // Use URL after "medium.com/@"
+    email: {
+      emailAddress: 'hi@danydodson.dev',
+      showHeaderIcon: true,
+      showFooterIcon: false
+    },
+    github: {
+      accountName: 'danydodson',
+      showHeaderIcon: true
+    },
+    facebook: {
+      accountName: 'danydodson',
+      showHeaderIcon: true
+    },
+    instagram: {
+      accountName: 'ugly_casanova',
+      showHeaderIcon: true
+    },
+    twitter: {
+      accountName: 'dany_dodson',
+      showHeaderIcon: true
+    },
+    linkedIn: {
+      accountName: 'in/danydodson',
+      showHeaderIcon: true
+    },
+    medium: {
+      accountName: 'danydodson',
+      showHeaderIcon: true
+    }
   },
 
   /* Social Media Share Buttons--available below every post
   ========================================= */
-  shareButtons: { email: false, facebook: true, twitter: true, reddit: false, linkedIn: false },
+  shareButtons: {
+    email: true,
+    facebook: true,
+    twitter: true,
+    reddit: true,
+    linkedIn: true
+  },
 
   /* Comments
   ========================================= */
   comments: {
-    facebook: { enabled: true, appId: "" },      // appId: optional, but used to moderate fb comments
-    disqus: { enabled: false, shortName: "" },   // Check your shortName on https://disqus.com
-    utterances: { enabled: false, repoUrl: "" }, // i.e. 'ellismin/gatsby-blog-mdx'
+    facebook: {
+      enabled: true,
+      appId: process.env.FB_APP_ID
+    },
+    disqus: {
+      enabled: true,
+      shortName: process.env.DISQUS_NAME
+    },
+    utterances: {
+      enabled: true,
+      repoUrl: 'danydodson/danys.art'
+    }
   },
 
   /* More Custom Settings
   ========================================= */
-  defaultTheme: "light",                      // Options: dark / light -- applied to first visitors
-  showTimeToRead: false,                      // Shows time to read for each post in main page
-  breakCodeLines: false,                      // Breaks long code lines instead of having horizontal scroll
-  faviconSrc: `_assets/icon-code.png`,        // Favicon
-  gaTrackingId: `UA-00000`,                   // Your google analytics tracking id--i.e. UA-*****
-  googleAdSenseId: `ca-pub-1234`,             // Your google AdSense client id--i.e. ca-pub-****
+  defaultTheme: 'light',
+  showTimeToRead: true,
+  faviconSrc: `assets/icon-code.png`,
+  breakCodeLines: true, // Breaks long code lines instead of having horizontal scroll
+  gaTrackingId: process.env.GOOGLE_TRACKING_ID,
+  googleAdSenseId: process.env.GOOGLE_AD_SENSE_ID
 }
 
 module.exports = config

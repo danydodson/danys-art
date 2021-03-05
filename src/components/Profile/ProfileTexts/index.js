@@ -1,9 +1,9 @@
-import React from "react"
-import AboutLink from "../../AboutLink"
-import MediaLinks from "../../MediaLinks"
-import { profileDescription } from "../../../../customize"
-import ProfileLocation from "../ProfileLocation"
-import styled from "styled-components"
+import React from 'react'
+import AboutLink from '../../AboutLink'
+import MediaLinks from '../../MediaLinks'
+import { profileDescription } from '../../../../customize'
+// import ProfileLocation from '../ProfileLocation'
+import styled from 'styled-components'
 
 // Renders in different layout when home is specified
 const ProfileTexts = ({ home }) => {
@@ -13,15 +13,15 @@ const ProfileTexts = ({ home }) => {
         <StyledProfileTextsHome className="profile-texts">
           <AboutLink />
           <p>{profileDescription}</p>
-          <ProfileLocation />
-          <MediaLinks />
+          {/* <ProfileLocation /> */}
+          {/* <MediaLinks /> */}
         </StyledProfileTextsHome>
       ) : (
         <StyledProfileTexts className="profile-texts">
           <h4>WRITTEN BY</h4>
           <AboutLink />
           <p>{profileDescription}</p>
-          <ProfileLocation />
+          {/* <ProfileLocation /> */}
           <MediaLinks />
         </StyledProfileTexts>
       )}
@@ -58,11 +58,11 @@ const StyledProfileTextsHome = styled.div`
   h4 {
     margin: 0.3rem 0;
     font-size: 0.9rem;
-    text-align: "center";
+    text-align: 'center';
   }
   p {
     margin: 0.5rem 0;
-    text-align: "center";
+    text-align: 'center';
   }
 
   div:last-child {

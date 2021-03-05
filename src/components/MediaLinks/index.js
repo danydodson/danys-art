@@ -1,7 +1,7 @@
-import React from "react"
-import styled from "styled-components"
-import MediaLink from "./MediaLink"
-import { socialMediaLinks } from "../../../customize"
+import React from 'react'
+import styled from 'styled-components'
+import MediaLink from './MediaLink'
+import { socialMediaLinks } from '../../../customize'
 
 const MediaLinks = () => {
   return (
@@ -54,7 +54,7 @@ const StyledMediaLinks = styled.div`
   flex-wrap: wrap;
   a {
     color: steelblue;
-    margin: 0 0.2rem;
+    margin: 0.2rem 0.2rem 0 0.2rem;
     font-size: 0.8rem;
   }
 `

@@ -1,15 +1,15 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import styled, { ThemeProvider } from "styled-components"
-import { config } from "@fortawesome/fontawesome-svg-core"
-import "@fortawesome/fontawesome-svg-core/styles.css"
-import { GlobalStyles, theme } from "../Shared/styles-global"
-import CodeBlockStyles from "../../components/Code/styles/code-global"
-import Header from "../Header"
-import UseTheme from "../../hooks/use-theme"
-import Footer from "../Footer"
-import ScrollTopButton from "../ScrollTopButton"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { useStaticQuery, graphql } from 'gatsby'
+import styled, { ThemeProvider } from 'styled-components'
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { GlobalStyles, theme } from '../Shared/styles-global'
+import CodeBlockStyles from '../../components/Code/styles/code-global'
+import Header from '../Header'
+import UseTheme from '../../hooks/use-theme'
+import Footer from '../Footer'
+import ScrollTopButton from '../ScrollTopButton'
 
 config.autoAddCss = false
 
@@ -57,7 +57,7 @@ const Layout = ({ children, showTitle, isPostTemplate }) => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Layout

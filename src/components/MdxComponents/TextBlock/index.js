@@ -1,25 +1,25 @@
-import React from "react"
-import styled from "styled-components"
-import PropTypes from "prop-types"
-import { theme } from "../../Shared/styles-global"
-import { setThemeVars } from "../../../util/theme-helper"
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import { theme } from '../../Shared/styles-global'
+import { setThemeVars } from '../../../util/theme-helper'
 // Icons
-import Warning from "../../../../_assets/icons/warning.svg"
-import Success from "../../../../_assets/icons/success.svg"
-import Info from "../../../../_assets/icons/info.svg"
-import Stop from "../../../../_assets/icons/stop.svg"
+import Warning from '../../../../assets/icons/warning.svg'
+import Success from '../../../../assets/icons/success.svg'
+import Info from '../../../../assets/icons/info.svg'
+import Stop from '../../../../assets/icons/stop.svg'
 
-const TextBlock = ({ theme, children, padding = "2rem 1.5rem" }) => {
+const TextBlock = ({ theme, children, padding = '2rem 1.5rem' }) => {
   let iconElement
 
   switch (theme) {
-    case "success":
+    case 'success':
       iconElement = <Success />
       break
-    case "warning":
+    case 'warning':
       iconElement = <Warning />
       break
-    case "danger":
+    case 'danger':
       iconElement = <Stop />
       break
     // For 'info' & 'primary'
@@ -39,7 +39,7 @@ export default TextBlock
 
 // Check props
 TextBlock.propTypes = {
-  theme: PropTypes.string.isRequired,
+  theme: PropTypes.string.isRequired
 }
 
 // Themes
@@ -47,21 +47,21 @@ const color = {
   success: `#46c763`,
   info: `#17a2b8`,
   warning: `#ffc107`,
-  danger: `#ee5252`,
+  danger: `#ee5252`
 }
 
 const bgColorLight = {
   success: `#e0f8e5`,
   info: `#daf1f4`,
   warning: `#f8f1e4`,
-  danger: `#f8e4e4`,
+  danger: `#f8e4e4`
 }
 
 const bgColorDark = {
   success: `#3f774b`,
   info: `#2e5d64`,
   warning: `#796733`,
-  danger: `#693434`,
+  danger: `#693434`
 }
 
 const StyledTextBlock = styled.div`
@@ -73,8 +73,8 @@ const StyledTextBlock = styled.div`
   padding: ${({ padding }) => padding};
 
   /* Default for primary */
-  border-color: ${() => setThemeVars("#666", theme.fontColorDark)};
-  background: ${() => setThemeVars("#f6f5f8", `#36353b`)};
+  border-color: ${() => setThemeVars('#666', theme.fontColorDark)};
+  background: ${() => setThemeVars('#f6f5f8', `#36353b`)};
   /* Based on chosen theme */
   border-color: ${props => color[props.theme]};
   background: ${props =>
@@ -92,7 +92,7 @@ const StyledIconWrap = styled.div`
     width: 30px;
     height: 30px;
     /* Default */
-    fill: ${() => setThemeVars("#666", theme.fontColorDark)};
+    fill: ${() => setThemeVars('#666', theme.fontColorDark)};
     /* Theme */
     fill: ${props => color[props.theme]};
   }

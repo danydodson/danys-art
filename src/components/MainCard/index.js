@@ -1,23 +1,23 @@
-import React, { Component } from "react"
-import styled from "styled-components"
-import Profile from "../Profile"
-import Tags from "../Tags"
-import PostList from "../Posts/PostList"
-import Loader from "../Loader"
-import ToggleMode from "../Layout/ToggleMode"
-import { isMobile } from "react-device-detect"
-import { TAG } from "../../constants"
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import Profile from '../Profile'
+import Tags from '../Tags'
+import PostList from '../Posts/PostList'
+import Loader from '../Loader'
+import ToggleMode from '../Layout/ToggleMode'
+import { isMobile } from 'react-device-detect'
+import { TAG } from '../../constants'
 
 class MainCard extends Component {
   state = {
     selectedTag: TAG.ALL,
     filteredPosts: [],
-    tags: [],
+    tags: []
   }
 
   componentDidMount() {
     // Get current viewing tag from storage
-    let curTag = sessionStorage.getItem("curTag") || TAG.ALL
+    let curTag = sessionStorage.getItem('curTag') || TAG.ALL
     const tagExists = this.checkTag(curTag)
     // If saved tag in storage doesn't exist among posts, set to "all"
     if (!tagExists) {
@@ -56,16 +56,16 @@ class MainCard extends Component {
     // Exclude about page & dummy page
     const filteredPosts = posts.filter(
       post =>
-        post.node.fields.slug !== "/about/" &&
-        post.node.fields.slug !== "/__do-not-remove/"
+        post.node.fields.slug !== '/about/' &&
+        post.node.fields.slug !== '/__do-not-remove/'
     )
     filteredPosts.forEach(post => {
       let tags = post.node.frontmatter.tags
 
       if (!tags) {
         // Register tag to the post if does not have any
-        post.node.frontmatter.tags = ["Uncategorized"]
-        tags = ["Uncategorized"]
+        post.node.frontmatter.tags = ['Uncategorized']
+        tags = ['Uncategorized']
       }
 
       tags.forEach(tag => {
@@ -100,7 +100,7 @@ class MainCard extends Component {
 
   handleSelectTag = async tag => {
     // Save current tag in storage
-    sessionStorage.setItem("curTag", tag)
+    sessionStorage.setItem('curTag', tag)
     await this.setState({ selectedTag: tag })
     await this.filterPosts()
   }
@@ -126,7 +126,7 @@ class MainCard extends Component {
                 />
               </StyledTagsPosts>
             ) : (
-              <div style={{ textAlign: "center" }}>
+              <div style={{ textAlign: 'center' }}>
                 <Loader />
               </div>
             )}

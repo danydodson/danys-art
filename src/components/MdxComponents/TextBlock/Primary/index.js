@@ -1,5 +1,5 @@
-import React from "react"
-import TextBlock from "../index"
+import React from 'react'
+import TextBlock from '../index'
 
 const Primary = ({ children, padding }) => {
   return <TextBlock theme="primary" children={children} padding={padding} />

@@ -1,8 +1,8 @@
-import React from "react"
-import styled from "styled-components"
-import ProfileTexts from "./ProfileTexts"
-import ProfileImg from "./ProfileImg"
-import { fontProfile, fontsBackUp } from "../../../customize-styles"
+import React from 'react'
+import styled from 'styled-components'
+import ProfileTexts from './ProfileTexts'
+import ProfileImg from './ProfileImg'
+import { fontProfile, fontsBackUp } from '../../../customize-styles'
 
 const Profile = ({ home }) => {
   return (

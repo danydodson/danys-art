@@ -1,5 +1,5 @@
-const path = require("path")
-const { createFilePath } = require("gatsby-source-filesystem")
+const path = require('path')
+const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
@@ -9,7 +9,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug,
+      value: slug
     })
   }
 }
@@ -18,7 +18,7 @@ exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
   const postTemplate = path.resolve(
-    "src/components/Posts/PostTemplate/index.js"
+    'src/components/Posts/PostTemplate/index.js'
   )
 
   return graphql(`
@@ -44,8 +44,8 @@ exports.createPages = ({ actions, graphql }) => {
     if (res.errors) {
       return Promise.reject(res.errors)
     }
-    // console.log(JSON.stringify(res, null, 4)) ///
-
+    // console.log(JSON.stringify(res, null, 4))
+    
     // Create pages & register paths
     const edges = res.data.allMdx.edges
     edges.forEach((edge, i) => {
@@ -54,15 +54,15 @@ exports.createPages = ({ actions, graphql }) => {
       const prev = getPrevAvailableNode(edges, i + 1)
       const next = getNextAvailableNode(edges, i - 1)
 
-      if (node.fields.slug !== "/__do-not-remove/") {
+      if (node.fields.slug !== '/__do-not-remove/') {
         createPage({
           path: node.fields.slug,
           component: postTemplate,
           context: {
             slug: node.fields.slug,
             next,
-            prev,
-          },
+            prev
+          }
         })
       }
     })
@@ -100,7 +100,7 @@ const skipNode = node => {
 }
 
 const isAboutPage = node => {
-  return node.fields.slug === "/about/"
+  return node.fields.slug === '/about/'
 }
 
 const isDraft = node => {
@@ -108,5 +108,5 @@ const isDraft = node => {
 }
 
 const isDummy = node => {
-  return node.frontmatter.tags && node.frontmatter.tags.includes("___dummy*")
+  return node.frontmatter.tags && node.frontmatter.tags.includes('___dummy*')
 }

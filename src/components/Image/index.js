@@ -1,7 +1,7 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
-import config from "../../../customize"
+import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import config from '../../../customize'
 
 const Image = () => {
   const data = useStaticQuery(graphql`
@@ -30,7 +30,10 @@ const Image = () => {
   }
 
   return (
-    <Img className="img-profile" fluid={image.node.childImageSharp.fluid} />
+    <Img
+      className="img-profile p-i-test"
+      fluid={image.node.childImageSharp.fluid}
+    />
   )
 }
 

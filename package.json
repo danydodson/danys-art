@@ -1,10 +1,16 @@
 {
-  "name": "gatsby-blog-mdx",
-  "author": "Ellis Min <ellismin.dev@gmail.com>",
-  "license": "MIT",
+  "name": "danys.art",
+  "version": "1.0.0",
   "private": true,
-  "description": "A simple starter for blog posts built with Gatsby js",
-  "version": "0.1.0",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "debug": "gatsby develop -H 0.0.0.0",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-brands-svg-icons": "^5.12.1",
@@ -56,26 +62,12 @@
   "devDependencies": {
     "prettier": "^1.19.1"
   },
+  "license": "MIT",
+  "description": "Personal Blog & Portfolio of Dany Dodson",
+  "author": "Dany Dodson",
   "keywords": [
     "gatsby",
-    "gatsby-blog-mdx"
-  ],
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "yarn run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "dev": "gatsby develop",
-    "dev-mobile": "gatsby develop -H 0.0.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/EllisMin/gatsby-blog-mdx"
-  },
-  "bugs": {
-    "url": "https://github.com/EllisMin/gatsby-blog-mdx/issues"
-  }
+    "react.js",
+    "mdx"
+  ]
 }

@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/EllisMin/gatsby-blog-mdx">
-    <img alt="icon" src="_assets/icon-code-rainbow.png" width="60" />
+    <img alt="icon" src="assets/icon-code-rainbow.png" width="60" />
   </a>
 </p>
 <h1 align="center">
@@ -19,11 +19,11 @@ A ready-to-use, customizable personal blog with minimalistic design
 
 - Simple blog with responsive design
 
-  ![](/_assets/readme-images/imac-phone.png)
+  ![](/assets/readme-images/imac-phone.png)
 
 - Light / Dark Mode Switch
 
-  ![](/_assets/readme-images/theme-chg.gif)
+  ![](/assets/readme-images/theme-chg.gif)
 
 - Fast !
 
@@ -37,7 +37,7 @@ A ready-to-use, customizable personal blog with minimalistic design
 
 - Code syntax highlighting (Light / Dark)
 
-  ![](/_assets/readme-images/light-dark-code.png)
+  ![](/assets/readme-images/light-dark-code.png)
 
 - Comments plugins
 
@@ -85,7 +85,7 @@ A ready-to-use, customizable personal blog with minimalistic design
 
     **Post Example**
 
-    Create `*.mdx` under `_posts` directory in the root directory
+    Create `*.mdx` under `posts` directory in the root directory
 
     ```
     ---
@@ -108,12 +108,12 @@ A ready-to-use, customizable personal blog with minimalistic design
 
     ### Learn [how to deploy your blog online](https://gatsby-blog-mdx.now.sh/2020/05/5-deploy/)
 
-
 ## What's inside? 🔍
+
 ```
 .
-├── _assets             # Contains profile image & favicon
-├── _posts              # All of your posts goes in here as well as any other files
+├── assets             # Contains profile image & favicon
+├── posts              # All of your posts goes in here as well as any other files
 ├── src                 # All the front-end source code
 ├── customize.js        # ----> Modify this to customize your blog
 ├── customize-styles.js # ----> Modify this to customize stylings

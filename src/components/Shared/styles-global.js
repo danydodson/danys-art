@@ -1,12 +1,12 @@
-import { createGlobalStyle, keyframes } from "styled-components"
-import { isMobile } from "react-device-detect"
-import { setThemeVars } from "../../util/theme-helper"
-import config from "../../../customize"
-import configStyles from "../../../customize-styles"
+import { createGlobalStyle, keyframes } from 'styled-components'
+import { isMobile } from 'react-device-detect'
+import { setThemeVars } from '../../util/theme-helper'
+import config from '../../../customize'
+import configStyles from '../../../customize-styles'
 
 const globalVar = {
-  primaryColor: "#fff",
-  secondaryColor: "#333",
+  primaryColor: '#fff',
+  secondaryColor: '#333',
   bgColorLight: configStyles.bgColorLight,
   bgColorDark: configStyles.bgColorDark,
   bgSubColorLight: configStyles.bgSubColorLight,
@@ -17,13 +17,13 @@ const globalVar = {
   fontSubColorLight: configStyles.fontSubColorLight,
   fontColorDark: configStyles.fontColorDark,
   fontSubColorDark: configStyles.fontSubColorDark,
-  darkColor: "#333",
-  midColor: "#444",
-  darkerColor: "#2c2c39",
-  subColor: "grey",
-  lightGreyColor: "#eee",
-  midGreyColor: "#ccc",
-  mintColor: "#bfe2ca",
+  darkColor: '#333',
+  midColor: '#444',
+  darkerColor: '#2c2c39',
+  subColor: 'grey',
+  lightGreyColor: '#eee',
+  midGreyColor: '#ccc',
+  mintColor: '#bfe2ca',
   maxWidthSite: config.maxWidth,
 
   // @mixin disable-selection()
@@ -33,16 +33,16 @@ const globalVar = {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;`,
-  curTheme: "",
+  curTheme: ''
 }
 
 // global variables are passed down to themes to be used in other styled components
 export const theme = {
-  ...globalVar,
+  ...globalVar
 }
 
-let profileHomeBorder = () => setThemeVars("#ddd", "#333")
-if (isMobile) profileHomeBorder = "transparent"
+let profileHomeBorder = () => setThemeVars('#ddd', '#333')
+if (isMobile) profileHomeBorder = 'transparent'
 
 const glowing = keyframes`
     0% { background-position: 0 0; }
@@ -61,6 +61,7 @@ const scrollBarColor = () =>
 
 const scrollBarBg = () =>
   setThemeVars(configStyles.scrollbarBgLight, configStyles.scrollbarBgDark)
+
 const scrollBarHover = () =>
   setThemeVars(
     configStyles.scrollbarHoverLight,
@@ -143,18 +144,18 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .main-header {
-    border-bottom: 1px solid ${() => setThemeVars("#dbdbdb", "#2d2d2d")};
+    border-bottom: 1px solid ${() => setThemeVars('#dbdbdb', '#2d2d2d')};
     background: ${() =>
       setThemeVars(theme.headerColorLight, theme.headerColorDark)};
   }
 
   .sub-main {
     -webkit-box-shadow: 0px 0px 8px -5px ${() =>
-      setThemeVars("#000000bf", "#000000bf")};
+      setThemeVars('#000000bf', '#000000bf')};
     -moz-box-shadow: 0px 0px 8px -5px ${() =>
-      setThemeVars("#000000bf", "#000000bf")};
+      setThemeVars('#000000bf', '#000000bf')};
     box-shadow: 0px 0px 8px -5px ${() =>
-      setThemeVars("#000000bf", "#000000bf")};
+      setThemeVars('#000000bf', '#000000bf')};
 
     background: ${() => setThemeVars(theme.bgColorLight, theme.bgColorDark)}; 
   }
@@ -163,7 +164,7 @@ export const GlobalStyles = createGlobalStyle`
     border-bottom: 1px solid ${profileHomeBorder};
   }
 
-  .profile-image-inner-inner{
+  .profile-image-inner-inner {
     background: ${() => setThemeVars(theme.bgColorLight, theme.bgColorDark)}
   }
 
@@ -171,7 +172,7 @@ export const GlobalStyles = createGlobalStyle`
     h4, p, p > a {
       color: ${() =>
         setThemeVars(theme.fontSubColorLight, theme.fontSubColorDark)};
-    }
+    };
   }
 
   .icon-fa {
@@ -199,10 +200,10 @@ export const GlobalStyles = createGlobalStyle`
 
   .link-edge-posts {
     li {
-      background: ${() => setThemeVars("#fafafa", "#2f2d33")};
+      background: ${() => setThemeVars('#fafafa', '#2f2d33')};
 
       &:hover {
-        background: ${() => setThemeVars("#ededef", "#333138")};
+        background: ${() => setThemeVars('#ededef', '#333138')};
       }
     }
   }
@@ -245,7 +246,7 @@ export const GlobalStyles = createGlobalStyle`
         width: calc(100% + 4px);
         height: calc(100% + 4px);
         animation: ${glowing} 28s linear infinite;
-        opacity: ${() => setThemeVars("0.2", "0.12")};
+        opacity: ${() => setThemeVars('0.2', '0.12')};
         transition: opacity .3s ease-in-out;
         border-radius: 10px;
       }
@@ -272,7 +273,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .main-footer {
-    color: ${() => setThemeVars("#ccc", theme.subColor)};
+    color: ${() => setThemeVars('#ccc', theme.subColor)};
     border-top: 1px solid ${() =>
       setThemeVars(theme.lightGreyColor, theme.darkColor)};
     a {
@@ -299,27 +300,28 @@ export const GlobalStyles = createGlobalStyle`
   .tags {
     &-horizontal {
       -webkit-box-shadow: 0px 0px 7px -5px ${() =>
-        setThemeVars("#000000bf", "#000000bf")};
+        setThemeVars('#000000bf', '#000000bf')};
       -moz-box-shadow: 0px 0px 7px -5px ${() =>
-        setThemeVars("#000000bf", "#000000bf")};
+        setThemeVars('#000000bf', '#000000bf')};
       box-shadow: 0px 0px 7px -5px ${() =>
-        setThemeVars("#000000bf", "#000000bf")};
+        setThemeVars('#000000bf', '#000000bf')};
 
-      background: ${() => setThemeVars("#f5f5f5", theme.headerColorDark)};
-      border-left: 3px solid ${() => setThemeVars("#bbb", "#444")};
-      border-right: 3px solid ${() => setThemeVars("#bbb", "#444")};
-      border-top: 1px solid ${() => setThemeVars("#eee", "#333")};
-      border-bottom: 1px solid ${() => setThemeVars("#eee", "#333")};
-      color: ${() => setThemeVars("#888", "#c9c9c9")}
+      background: ${() => setThemeVars('#f5f5f5', theme.headerColorDark)};
+      border-left: 3px solid ${() => setThemeVars('#bbb', '#444')};
+      border-right: 3px solid ${() => setThemeVars('#bbb', '#444')};
+      border-top: 1px solid ${() => setThemeVars('#eee', '#333')};
+      border-bottom: 1px solid ${() => setThemeVars('#eee', '#333')};
+      color: ${() => setThemeVars('#888', '#c9c9c9')}
     }
   }
   
 
   .tag {
     &-horizontal {  
-      background: ${() => setThemeVars("#fff", "#3a3d56")};
+      background: ${() => setThemeVars('#fff', '#3a3d56')};
       &:hover{
-        background: ${() => setThemeVars("#fff !important", "#3a3d56 !important")};
+        background: ${() =>
+          setThemeVars('#fff !important', '#3a3d56 !important')};
       }
     }
 
@@ -332,11 +334,11 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .custom-hr {
-    border-top-color: ${() => setThemeVars("#e7e6e8", "#414044")};
+    border-top-color: ${() => setThemeVars('#e7e6e8', '#414044')};
   }
 
   .icon-hand-ptr {
-    color: ${() => setThemeVars("#555", "#eee")}
+    color: ${() => setThemeVars('#555', '#eee')}
   }
 
   .medium-zoom-overlay {
@@ -346,17 +348,17 @@ export const GlobalStyles = createGlobalStyle`
     z-index: 5;
   }
 
-  ${"" /* Applies to react live code */}
+  ${'' /* Applies to react live code */}
   .live-highlight {
       font-family: ${configStyles.fontCodeBlocks +
         configStyles.fontsBackUp} !important;
   }
 
-  ${"" /* Custom scrollbar styling for non mobile */}
+  ${'' /* Custom scrollbar styling for non mobile */}
     &::-webkit-scrollbar {
-      height: ${isMobile ? "" : "13px"};
-      width: ${isMobile ? "" : "13px"};
-      border-radius: ${isMobile ? "" : "20px"};
+      height: ${isMobile ? '' : '13px'};
+      width: ${isMobile ? '' : '13px'};
+      border-radius: ${isMobile ? '' : '20px'};
     }
 
     &::-webkit-scrollbar-track {
@@ -389,8 +391,8 @@ export const GlobalStyles = createGlobalStyle`
   }
   
   thead {
-    background: ${() => setThemeVars("#eee", "#343434")};
-    border-bottom: 2px solid ${() => setThemeVars("#ddd", "#444")};
+    background: ${() => setThemeVars('#eee', '#343434')};
+    border-bottom: 2px solid ${() => setThemeVars('#ddd', '#444')};
   }
 
   th {
@@ -401,7 +403,7 @@ export const GlobalStyles = createGlobalStyle`
 
   td {
     padding: 0.5rem;
-    border-bottom: 1px solid ${() => setThemeVars("#ddd", "#444")};
+    border-bottom: 1px solid ${() => setThemeVars('#ddd', '#444')};
   }
 
   tr,

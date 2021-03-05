@@ -1,7 +1,7 @@
-import React from "react"
-import styled from "styled-components"
-import Image from "../../Image"
-import { theme } from "../../Shared/styles-global"
+import React from 'react'
+import styled from 'styled-components'
+import Image from '../../Image'
+import { theme } from '../../Shared/styles-global'
 
 const ProfileImage = ({ home }) => {
   return (
@@ -35,7 +35,7 @@ const ProfileImage = ({ home }) => {
 
 export default ProfileImage
 
-const profileImageSize = "80px"
+const profileImageSize = '80px'
 
 const StyledImage = styled.div`
   position: relative;

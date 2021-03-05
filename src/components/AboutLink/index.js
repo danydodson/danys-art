@@ -1,7 +1,7 @@
-import React from "react"
-import styled from "styled-components"
-import { Link } from "gatsby"
-import { enableAbout as enabled, author } from "../../../customize"
+import React from 'react'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
+import { enableAbout as enabled, author } from '../../../customize'
 
 const AboutLink = () => {
   return (

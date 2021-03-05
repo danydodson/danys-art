@@ -1,12 +1,12 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
 
-const Hr = ({ verticalMargin, widthInPercent, ...otherProps }) => {
+const HRuler = ({ verticalMargin, widthInPercent, ...otherProps }) => {
   // Set defaults
   const width = widthInPercent ? `${widthInPercent}%` : `100%`
   const margin = verticalMargin ? `${verticalMargin} auto` : `0.5rem auto`
   return (
-    <StyledHr
+    <StyledHRuler
       className="custom-hr"
       width={width}
       margin={margin}
@@ -15,9 +15,9 @@ const Hr = ({ verticalMargin, widthInPercent, ...otherProps }) => {
   )
 }
 
-export default Hr
+export default HRuler
 
-const StyledHr = styled.hr`
+const StyledHRuler = styled.hr`
   display: block;
   height: 1;
   border: 0;

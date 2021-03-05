@@ -1,5 +1,5 @@
-const config = require("./customize")
-const rss = require("./gatsby-rss")
+const config = require('./customize')
+const rss = require('./gatsby-rss')
 
 module.exports = {
   siteMetadata: config,
@@ -17,10 +17,10 @@ module.exports = {
 
     // Read markdown/mdx files
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/_posts`,
-      },
+        path: `${__dirname}/posts`
+      }
     },
 
     // Read images
@@ -28,8 +28,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `assets`,
-        path: `${__dirname}/_assets`,
-      },
+        path: `${__dirname}/assets`
+      }
     },
 
     // mdx support
@@ -40,10 +40,10 @@ module.exports = {
         gatsbyRemarkPlugins: [
           // Adding title to code blocks. Usage: ```js:title=example.js
           {
-            resolve: "gatsby-remark-code-titles",
+            resolve: 'gatsby-remark-code-titles',
             options: {
-              className: "code-title-custom",
-            },
+              className: 'code-title-custom'
+            }
           },
 
           // Process images in markdown
@@ -52,51 +52,51 @@ module.exports = {
             options: {
               maxWidth: config.maxWidth,
               backgroundColor: `transparent`,
-              linkImagesToOriginal: false,
-            },
+              linkImagesToOriginal: false
+            }
           },
 
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
-              className: `anchor-heading`,
-            },
+              className: `anchor-heading`
+            }
           },
 
           {
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
-              destinationDir: `${__dirname}/_posts`,
-              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
-            },
-          },
-        ],
-      },
+              destinationDir: `${__dirname}/posts`,
+              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`]
+            }
+          }
+        ]
+      }
     },
 
     // Using svg as component
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /_assets/,
-        },
-      },
+          include: /assets/
+        }
+      }
     },
 
     {
       resolve: `gatsby-transformer-sharp`,
       options: {
         // Removes warnings trying to use non-gatsby image in markdown
-        checkSupportedExtensions: false,
-      },
+        checkSupportedExtensions: false
+      }
     },
 
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: config.gaTrackingId,
-      },
+        trackingId: config.gaTrackingId
+      }
     },
 
     {
@@ -107,8 +107,8 @@ module.exports = {
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
-              className: `anchor-heading`,
-            },
+              className: `anchor-heading`
+            }
           },
 
           {
@@ -116,11 +116,11 @@ module.exports = {
             options: {
               maxWidth: config.maxWidth,
               backgroundColor: `transparent`,
-              linkImagesToOriginal: false,
-            },
-          },
-        ],
-      },
+              linkImagesToOriginal: false
+            }
+          }
+        ]
+      }
     },
 
     {
@@ -130,16 +130,16 @@ module.exports = {
         short_name: `blog`,
         start_url: `/`,
         display: `minimal-ui`,
-        icon: config.faviconSrc, // This path is relative to the root of the site.
-      },
+        icon: config.faviconSrc // This path is relative to the root of the site.
+      }
     },
 
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
         name: `dummy`,
-        path: `${__dirname}/src/z_`,
-      },
-    },
-  ],
+        path: `${__dirname}/src/z_`
+      }
+    }
+  ]
 }

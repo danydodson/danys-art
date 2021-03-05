@@ -1,11 +1,11 @@
-import React from "react"
-import PostCard from "../PostCard"
+import React from 'react'
+import PostCard from '../PostCard'
 
 const PostList = ({ posts }) => {
   let filteredPosts = posts.filter(
     post =>
-      post.node.fields.slug !== "/about/" &&
-      post.node.fields.slug !== "/__do-not-remove/"
+      post.node.fields.slug !== '/about/' &&
+      post.node.fields.slug !== '/__do-not-remove/'
   )
   return (
     <div className="posts-list">

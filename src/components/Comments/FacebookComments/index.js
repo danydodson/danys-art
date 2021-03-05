@@ -1,10 +1,10 @@
-import React from "react"
-import styled from "styled-components"
-import { withTheme } from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
+import { withTheme } from 'styled-components'
 
 class FacebookComments extends React.Component {
   state = {
-    curTheme: undefined,
+    curTheme: undefined
   }
 
   componentDidMount() {
@@ -28,7 +28,7 @@ class FacebookComments extends React.Component {
             data-href={this.props.location}
             data-width="100%"
             data-numposts="10"
-            data-order-by={"social"}
+            data-order-by={'social'}
             colorscheme={this.state.curTheme}
           ></div>
         )}

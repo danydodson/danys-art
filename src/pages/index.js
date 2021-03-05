@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/Layout"
-import SEO from "../components/SEO"
-import MainCard from "../components/MainCard"
+import React, { useState, useEffect } from 'react'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import SEO from '../components/SEO'
+import MainCard from '../components/MainCard'
 
 const loadsPer = 15
 
@@ -11,21 +11,21 @@ const IndexPage = ({ data }) => {
   const posts = data.allMdx.edges
 
   useEffect(() => {
-    const curLoad = sessionStorage.getItem("curLoad") || loadsPer
+    const curLoad = sessionStorage.getItem('curLoad') || loadsPer
     setLoaded(parseInt(curLoad))
   }, [])
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener('scroll', handleScroll)
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener('scroll', handleScroll)
     }
   })
 
   const handleScroll = () => {
     const lastPostLoaded = document.querySelector(
-      "div.posts-list > a:last-child"
+      'div.posts-list > a:last-child'
     )
     const lastPostLoadedOffset =
       lastPostLoaded.offsetTop + lastPostLoaded.clientHeight
@@ -35,7 +35,7 @@ const IndexPage = ({ data }) => {
       // Stops loading
       if (posts.length > loaded)
         setLoaded(prev => {
-          sessionStorage.setItem("curLoad", prev + loadsPer)
+          sessionStorage.setItem('curLoad', prev + loadsPer)
           return prev + loadsPer
         })
     }
@@ -65,7 +65,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MM/DD/YYYY")
+            date(formatString: "MMM D YYYY")
             title
             tags
             excerpt

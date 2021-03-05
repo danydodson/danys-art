@@ -1,13 +1,9 @@
-import React from "react"
+import React from 'react'
 
-import "./styles.scss"
+import './styles.scss'
 
 const Underline = ({ children }) => {
-  return (
-    <span className="custom-underline">
-      {children}
-    </span>
-  )
+  return <span className="custom-underline">{children}</span>
 }
 
 export default Underline

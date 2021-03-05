@@ -22,7 +22,7 @@ const rss = {
               date: edge.node.frontmatter.date,
               url: site.siteMetadata.siteUrl + edge.node.fields.slug,
               guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-              custom_elements: [{ "content:encoded": edge.node.html }],
+              custom_elements: [{ 'content:encoded': edge.node.html }]
             })
           })
         },
@@ -45,18 +45,18 @@ const rss = {
               }
             }
           `,
-        output: "/rss.xml",
+        output: '/rss.xml',
         title: "My blog's RSS Feed",
         // optional configuration to insert feed reference in pages:
         // if `string` is used, it will be used to create RegExp and then test if pathname of
         // current page satisfied this regular expression;
         // if not provided or `undefined`, all pages will have feed reference inserted
-        // match: "^/blog/",
+        match: '^/blog/'
         // optional configuration to specify external rss feed, such as feedburner
         // link: "https://feeds.feedburner.com/gatsby/blog",
-      },
-    ],
-  },
+      }
+    ]
+  }
 }
 
 module.exports = rss

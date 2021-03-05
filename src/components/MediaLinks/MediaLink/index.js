@@ -1,9 +1,9 @@
-import React from "react"
+import React from 'react'
 
 const MediaLink = ({ accountInfo, mediaName, preHref }) => {
   return (
     <>
-      {accountInfo && accountInfo !== "" && (
+      {accountInfo && accountInfo !== '' && (
         <a
           href={`${preHref}${accountInfo}`}
           target="_blank"
@@ -17,4 +17,3 @@ const MediaLink = ({ accountInfo, mediaName, preHref }) => {
 }
 
 export default MediaLink
-

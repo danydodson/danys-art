@@ -1,9 +1,9 @@
-import React from "react"
-import styled from "styled-components"
-import { Link } from "gatsby"
-import config from "../../../customize"
-import RSS from "../../../_assets/icons/rss.svg"
-import { setThemeVars } from "../../util/theme-helper"
+import React from 'react'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
+import config from '../../../customize'
+import RSS from '../../../assets/icons/rss.svg'
+import { setThemeVars } from '../../util/theme-helper'
 
 const Footer = () => {
   return (
@@ -17,15 +17,6 @@ const Footer = () => {
           rel="noopener noreferrer"
         >
           {config.author}
-        </StyledA>
-        , Built with
-        {` `}
-        <StyledA
-          href="https://github.com/EllisMin/gatsby-blog-mdx"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          gatsby-blog-mdx
         </StyledA>
       </div>
       <Link to="/rss.xml">
@@ -45,8 +36,8 @@ const StyledFooter = styled.footer`
   font-size: 0.9rem;
   margin-top: 1rem;
   padding: 1rem;
-  
-  @media(max-width: 500px){
+
+  @media (max-width: 500px) {
     font-size: 0.77rem;
   }
 `
@@ -55,5 +46,5 @@ const StyledA = styled.a``
 const StyledRSS = styled(RSS)`
   width: 20px;
   height: 20px;
-  fill: ${() => setThemeVars("#aaa", "#888")};
+  fill: ${() => setThemeVars('#aaa', '#888')};
 `

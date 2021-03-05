@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 
 const DisqusComments = ({ shortName, location }) => {
   var disqus_config = function() {
@@ -12,9 +12,9 @@ const DisqusComments = ({ shortName, location }) => {
   ;(function() {
     // DON'T EDIT BELOW THIS LINE
     var d = document,
-      s = d.createElement("script")
+      s = d.createElement('script')
     s.src = `https://${shortName}.disqus.com/embed.js`
-    s.setAttribute("data-timestamp", +new Date())
+    s.setAttribute('data-timestamp', +new Date())
     ;(d.head || d.body).appendChild(s)
   })()
   return (

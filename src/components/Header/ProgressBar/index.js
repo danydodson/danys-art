@@ -1,14 +1,14 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef } from 'react'
 
-import "./styles.scss"
+import './styles.scss'
 
 const ProgressBar = () => {
   const barRef = useRef(null)
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener('scroll', handleScroll)
     return () => {
-      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
@@ -19,7 +19,7 @@ const ProgressBar = () => {
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight
     const scrolled = (winScroll / height) * 100
-    barRef.current.style.width = scrolled + "%"
+    barRef.current.style.width = scrolled + '%'
   }
 
   return (

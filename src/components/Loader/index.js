@@ -1,6 +1,6 @@
-import React from "react"
-import styled, { keyframes } from "styled-components"
-import { theme } from "../Shared/styles-global"
+import React from 'react'
+import styled, { keyframes } from 'styled-components'
+import { theme } from '../Shared/styles-global'
 
 const loader = keyframes`
   0% {

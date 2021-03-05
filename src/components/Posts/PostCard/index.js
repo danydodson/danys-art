@@ -1,11 +1,11 @@
-import React from "react"
-import { Link } from "gatsby"
-import styled from "styled-components"
-import { setThemeVars } from "../../../util/theme-helper"
-import { theme } from "../../Shared/styles-global"
-import config from "../../../../customize"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faClock } from "@fortawesome/free-solid-svg-icons"
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
+import { setThemeVars } from '../../../util/theme-helper'
+import { theme } from '../../Shared/styles-global'
+import config from '../../../../customize'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClock } from '@fortawesome/free-solid-svg-icons'
 
 const PostCard = ({ id, title, date, path, excerpt, timeToRead }) => {
   return (

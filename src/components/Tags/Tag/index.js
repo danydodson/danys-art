@@ -1,7 +1,7 @@
-import React from "react"
-import styled from "styled-components"
-import { theme } from "../../Shared/styles-global"
-import { isMobile } from "react-device-detect"
+import React from 'react'
+import styled from 'styled-components'
+import { theme } from '../../Shared/styles-global'
+import { isMobile } from 'react-device-detect'
 
 const Tag = ({ title, selectTag, selectedTag, unmountTagsAnimation }) => {
   const handleClick = () => {
@@ -37,8 +37,8 @@ const StyledTagVertical = styled.div`
   border-left-width: 3px;
   border-left-style: solid;
   border-left-color: ${props =>
-    props.selected ? `${theme.mintColor}` : "transparent"};
-  font-weight: ${props => (props.selected ? "bold" : "400")};
+    props.selected ? `${theme.mintColor}` : 'transparent'};
+  font-weight: ${props => (props.selected ? 'bold' : '400')};
   position: sticky;
   transition: none;
 `
@@ -49,9 +49,9 @@ const StyledTagHorizontal = styled.div`
   padding: 0.5rem 0.9rem;
   margin: 0 0.3rem;
   font-size: 0.9rem;
-  background: ${props => !props.selected && "none !important"};
+  background: ${props => !props.selected && 'none !important'};
   border-radius: 15px;
-  font-weight: ${props => (props.selected ? "bold" : "400")};
+  font-weight: ${props => (props.selected ? 'bold' : '400')};
   white-space: nowrap;
   transition: none;
 `

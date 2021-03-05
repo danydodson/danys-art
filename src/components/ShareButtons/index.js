@@ -1,21 +1,21 @@
-import React from "react"
-import config from "../../../customize"
+import React from 'react'
+import config from '../../../customize'
 import {
   EmailShareButton,
   FacebookShareButton,
   RedditShareButton,
   TwitterShareButton,
-  LinkedinShareButton,
-} from "react-share"
+  LinkedinShareButton
+} from 'react-share'
 import {
   EmailIcon,
   FacebookIcon,
   RedditIcon,
   TwitterIcon,
-  LinkedinIcon,
-} from "react-share"
+  LinkedinIcon
+} from 'react-share'
 
-import "./styles.scss"
+import './styles.scss'
 
 const ShareButtons = ({ location }) => {
   return (

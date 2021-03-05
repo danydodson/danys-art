@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 
 const UtterancesComments = ({ innerRef }) => {
   return <div ref={innerRef}></div>
