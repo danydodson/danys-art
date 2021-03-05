@@ -8,7 +8,7 @@ const config = {
   description: `This is my blog`,
   maxWidth: 768,
   enableAbout: true,
-  siteUrl: `https://danys.art/`,
+  siteUrl: `https://danys.art`,
   useScrollIndicator: true,
 
   /* Profile
@@ -76,7 +76,7 @@ const config = {
     },
     utterances: {
       enabled: true,
-      repoUrl: 'danydodson/danys.art'
+      repoUrl: 'danydodson/danys-art-comments'
     }
   },
 
