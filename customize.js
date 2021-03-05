@@ -76,7 +76,7 @@ const config = {
     },
     utterances: {
       enabled: true,
-      repoUrl: 'danydodson/danys-art-comments'
+      repoUrl: 'danydodson/danys-art'
     }
   },
 
