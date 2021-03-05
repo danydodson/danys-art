@@ -22,11 +22,80 @@
       }
 
       .data-cell-img-border {
-        color: rgb(170, 161, 161);
+        color: #0000002c;
+      }
+
+      .data-cell-img-src {
+        width: 65px;
+        height: 50px;
+        border: 1px solid;
+        border-radius: 4px;
       }
 
       .data-cell-img-right-space {
         width: 10px;
+      }
+
+      .table-main {
+        font-size: 15px;
+        color: #4b5662;
+        border: 0;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      }
+
+      .data-cell-top {
+        line-height: 14px;
+        color: #918872;
+        display: inline-block;
+        padding-bottom: 3px;
+      }
+
+      .data-cell-info-name {
+        font-size: 15px;
+        color: #605c51;
+        text-transform: uppercase;
+        font-weight: 500;
+        display: inline-block;
+        padding-bottom: 5px;
+      }
+
+      .data-cell-info-title {
+        line-height: 18px;
+      }
+
+      .data-cell-info-address {
+        line-height: 18px;
+        display: inline-block;
+        padding-bottom: 5px;
+      }
+
+      .data-cell-bottom {
+        line-height: 17px;
+        width: 100%;
+        border-top: dashed 1px #605c51;
+        padding-top: 10px;
+      }
+
+      .data-cell-info-phone {
+        color: #605c51;
+      }
+
+      .data-cell-info-phone-link {
+        color: #918872;
+        text-decoration: none;
+        padding-bottom: 4px;
+        display: inline-block;
+      }
+
+      .data-cell-info-email {
+        color: #605c51;
+      }
+
+      .data-cell-info-email-link {
+        color: #918872;
+        text-decoration: none;
+        padding-bottom: 4px;
+        display: inline-block;
       }
     </style>
 
@@ -40,28 +109,25 @@
           <tr>
             <td class='data-cell-img-holder'>
               <span class='data-cell-img-border'>
-                <img style='border-radius: 4px; border: 1px solid; width: 65px; height: 50px;' src='https://en.gravatar.com/userimage/62805797/f90e3197b6c2055e449b5c8f7eaf0f61.png'>
+                <img style='border-radius: 4px; border: 1px solid; width: 65px; height: 50px;' src='https://raw.githubusercontent.com/danydodson/danys-art/main/static/profile.jpg'>
               </span>
             </td>
-            <td class='data-cell-img-right-space '>
-              <br>
-            </td>
+            <td class='data-cell-img-right-space'><br></td>
             <td>
-              <table style='font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 15px; color: #4b5662;' cellspacing='0' cellpadding='0' border='0'>
+              <table class='table-main' cellspacing='0' cellpadding='0'>
                 <tbody>
                   <tr>
-                    <td style='line-height:14px; color: #918872; display: inline-block; padding-bottom: 3px;'><span style='font-size:15px; color: #605c51; text-transform:uppercase; font-weight: 500; display: inline-block; padding-bottom: 5px;'>Dany Dodson</span>
-                      <br>
-                      <span style='line-height: 18px;'>Full Stack Web Developer</span>
-                      <br>
-                      <span style='line-height: 18px; display: inline-block; padding-bottom: 5px;'>4525 Rathbone, Evansville, IN 47720</span>
+                    <td class='data-cell-top'>
+                      <span class='data-cell-info-name'>Dany Dodson</span><br>
+                      <span class='data-cell-info-title'>Full Stack Web Developer</span><br>
+                      <span class='data-cell-info-address'>4525 Rathbone, Evansville, IN 47720</span>
                       <br>
                     </td>
                   </tr>
                   <tr>
-                    <td style='line-height:17px; width:100%; border-top: dashed 1px #605c51; padding-top: 10px;'>
-                      <span style='color: #605c51;'>Mobile:</span> <a href='tel:%28123%29%20456-7890' style='color: #918872; text-decoration:none; padding-bottom: 4px; display: inline-block;'>1 (812) 550-7281</a><br>
-                      <span style='color: #605c51;'>Email:</span> <a href='mailto:marco@postbox.com' style='color: #918872; text-decoration:none; padding-bottom: 4px; display: inline-block;'>hello@danydodson.dev</a>
+                    <td class='data-cell-bottom'>
+                      <span class='data-cell-info-phone'>Mobile:</span><a href='tel:%28123%29%20456-7890' class='data-cell-info-phone-link'>1 (812) 550-7281</a><br>
+                      <span class='data-cell-info-email'>Email:</span><a href='mailto:marco@postbox.com' class='data-cell-info-email-link'>hello@danydodson.dev</a>
                     </td>
                   </tr>
                   <tr>
