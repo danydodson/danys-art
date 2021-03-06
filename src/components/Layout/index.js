@@ -63,7 +63,7 @@ Layout.propTypes = {
 export default Layout
 
 const StyledMain = styled.main`
+margin: 0 auto;
   position: relative;
-  margin: 0 auto;
   max-width: ${theme.maxWidthSite};
 `

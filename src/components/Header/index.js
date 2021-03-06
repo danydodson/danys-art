@@ -4,14 +4,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { withTheme } from 'styled-components'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
-import {
-  faGithub,
-  faFacebook,
-  faInstagram,
-  faTwitter,
-  faLinkedin,
-  faMedium
-} from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faFacebook, faInstagram, faTwitter, faLinkedin, faMedium } from '@fortawesome/free-brands-svg-icons'
 import HeaderIcon from '../HeaderIcon'
 import ProgressBar from './ProgressBar'
 
@@ -38,17 +31,17 @@ const Header = ({ siteTitle, showTitle, isPostTemplate }) => {
         </h1>
         <StyledMediaIcons>
           <HeaderIcon
-            accountInfo={config.socialMediaLinks.email}
-            mediaName={'email'}
-            preHref={'mailto:'}
-            icon={faEnvelope}
-          />
-
-          <HeaderIcon
             accountInfo={config.socialMediaLinks.github}
             mediaName={'github'}
             preHref={'https://github.com/'}
             icon={faGithub}
+          />
+
+          <HeaderIcon
+            accountInfo={config.socialMediaLinks.email}
+            mediaName={'email'}
+            preHref={'mailto:'}
+            icon={faEnvelope}
           />
 
           <HeaderIcon

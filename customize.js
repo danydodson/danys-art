@@ -6,7 +6,7 @@ const config = {
   ========================================= */
   title: `dany dodson`,
   description: `This is my blog`,
-  maxWidth: 768,
+  maxWidth: '768px',
   enableAbout: true,
   siteUrl: `https://danys.art`,
   useScrollIndicator: true,
@@ -23,9 +23,8 @@ const config = {
   ========================================= */
   socialMediaLinks: {
     email: {
-      emailAddress: 'hi@danydodson.dev',
+      emailAddress: 'hello@danydodson.dev',
       showHeaderIcon: true,
-      showFooterIcon: false
     },
     github: {
       accountName: 'danydodson',
@@ -33,23 +32,23 @@ const config = {
     },
     facebook: {
       accountName: 'danydodson',
-      showHeaderIcon: true
+      showHeaderIcon: false
     },
     instagram: {
       accountName: 'ugly_casanova',
-      showHeaderIcon: true
+      showHeaderIcon: false
     },
     twitter: {
       accountName: 'dany_dodson',
-      showHeaderIcon: true
+      showHeaderIcon: false
     },
     linkedIn: {
       accountName: 'in/danydodson',
-      showHeaderIcon: true
+      showHeaderIcon: false,
     },
     medium: {
       accountName: 'danydodson',
-      showHeaderIcon: true
+      showHeaderIcon: false
     }
   },
 
