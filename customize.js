@@ -82,7 +82,7 @@ const config = {
   /* More Custom Settings
   ========================================= */
   defaultTheme: 'light',
-  breakCodeLines: true, // Breaks lines instead of having horizontal scroll
+  breakCodeLines: false, // Breaks lines instead of having horizontal scroll
   showTimeToRead: true,
   faviconSrc: `static/favicon.png`,
   gaTrackingId: process.env.GOOGLE_TRACKING_ID,
