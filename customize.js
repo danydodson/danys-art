@@ -6,7 +6,7 @@ const config = {
   ========================================= */
   title: `dany dodson`,
   description: `This is my blog`,
-  maxWidth: '768px',
+  maxWidth: 768,
   enableAbout: true,
   siteUrl: `https://danys.art`,
   useScrollIndicator: true,

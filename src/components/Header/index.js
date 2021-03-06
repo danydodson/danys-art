@@ -107,7 +107,7 @@ const StyledMainHeaderInner = styled.div`
   align-items: center;
   height: 55px;
   margin: 0 auto;
-  max-width: ${props => props.theme.maxWidthSite};
+  max-width: ${props => props.theme.maxWidthSite}px;
   padding: 0.6rem;
   h1 {
     font-weight: 400;

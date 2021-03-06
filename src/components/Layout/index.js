@@ -65,5 +65,5 @@ export default Layout
 const StyledMain = styled.main`
 margin: 0 auto;
   position: relative;
-  max-width: ${theme.maxWidthSite};
+  max-width: ${theme.maxWidthSite}px;
 `
