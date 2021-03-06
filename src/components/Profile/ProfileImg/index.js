@@ -7,26 +7,18 @@ const ProfileImage = ({ home }) => {
   return (
     <>
       {home ? (
-        <StyledImageHome className="profile-image-home">
-          <StyledInner className="profile-image-inner">
-            <StyledInnerInner className="profile-image-inner-inner" />
+        <StyledImageHome className='profile-image-home'>
+          <StyledInner className='profile-image-inner'>
+            <StyledInnerInner className='profile-image-inner-inner' />
           </StyledInner>
-          <Image
-            objectFit="cover"
-            objectPosition="50% 50%"
-            alt="profileImage"
-          />
+          <Image objectFit='cover' objectPosition='50% 50%' alt='profileImage' />
         </StyledImageHome>
       ) : (
-        <StyledImage className="profile-image">
-          <StyledInner className="profile-image-inner">
-            <StyledInnerInner className="profile-image-inner-inner" />
+        <StyledImage className='profile-image'>
+          <StyledInner className='profile-image-inner'>
+            <StyledInnerInner className='profile-image-inner-inner' />
           </StyledInner>
-          <Image
-            objectFit="cover"
-            objectPosition="50% 50%"
-            alt="profileImage"
-          />
+          <Image objectFit='cover' objectPosition='50% 50%' alt='profileImage' />
         </StyledImage>
       )}
     </>

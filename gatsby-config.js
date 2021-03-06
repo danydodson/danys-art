@@ -1,4 +1,4 @@
-const config = require('./customize')
+const config = require('./content/meta/config')
 const rss = require('./gatsby-rss')
 
 module.exports = {
@@ -12,14 +12,38 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
-    `gatsby-remark-emoji`, // Emoji list: https://emojipedia.org/joypixels/
+    `gatsby-remark-emoji`,
     rss,
+
+    // Read pages files
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/pages`
+      }
+    },
+
+    // Read pages files
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     path: `${__dirname}/content/parts`
+    //   }
+    // },
 
     // Read markdown/mdx files
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/posts`
+        path: `${__dirname}/content/posts`
+      }
+    },
+
+    // Read projects files
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/projects`
       }
     },
 
@@ -32,13 +56,21 @@ module.exports = {
       }
     },
 
+    // Read dummy page
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `dummy`,
+        path: `${__dirname}/src/z_`
+      }
+    },
+
     // mdx support
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
-          // Adding title to code blocks. Usage: ```js:title=example.js
           {
             resolve: 'gatsby-remark-code-titles',
             options: {
@@ -66,13 +98,14 @@ module.exports = {
           {
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
-              destinationDir: `${__dirname}/posts`,
+              destinationDir: `${__dirname}/content/posts`,
               ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`]
             }
           }
         ]
       }
     },
+
 
     // Using svg as component
     {
@@ -110,7 +143,6 @@ module.exports = {
               className: `anchor-heading`
             }
           },
-
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -134,12 +166,6 @@ module.exports = {
       }
     },
 
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: `dummy`,
-        path: `${__dirname}/src/z_`
-      }
-    }
+
   ]
 }

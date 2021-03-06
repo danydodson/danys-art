@@ -30,14 +30,10 @@ const Layout = ({ children, showTitle, isPostTemplate }) => {
     <>
       <GlobalStyles />
       <CodeBlockStyles />
-      <Header
-        siteTitle={data.site.siteMetadata.title}
-        showTitle={showTitle}
-        isPostTemplate={isPostTemplate}
-      />
+      <Header siteTitle={data.site.siteMetadata.title} showTitle={showTitle} isPostTemplate={isPostTemplate} />
       <StyledMain>{children}</StyledMain>
       <Footer />
-      <ScrollTopButton scrollStepInPx="150" delayInMs="5" />
+      <ScrollTopButton scrollStepInPx='150' delayInMs='5' />
     </>
   )
 
@@ -45,13 +41,7 @@ const Layout = ({ children, showTitle, isPostTemplate }) => {
     // Used to set theme
     <ThemeProvider theme={setTheme}>
       {/* Used for global variables */}
-      <ThemeProvider theme={theme}>
-        {isPostTemplate ? (
-          <div className="post-bg-color">{childrenElement}</div>
-        ) : (
-          <>{childrenElement}</>
-        )}
-      </ThemeProvider>
+      <ThemeProvider theme={theme}>{isPostTemplate ? <div className='post-bg-color'>{childrenElement}</div> : <>{childrenElement}</>}</ThemeProvider>
     </ThemeProvider>
   )
 }
@@ -63,7 +53,7 @@ Layout.propTypes = {
 export default Layout
 
 const StyledMain = styled.main`
-margin: 0 auto;
+  margin: 0 auto;
   position: relative;
   max-width: ${theme.maxWidthSite}px;
 `

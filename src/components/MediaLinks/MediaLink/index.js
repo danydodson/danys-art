@@ -4,11 +4,7 @@ const MediaLink = ({ accountInfo, mediaName, preHref }) => {
   return (
     <>
       {accountInfo && accountInfo !== '' && (
-        <a
-          href={`${preHref}${accountInfo}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href={`${preHref}${accountInfo}`} target='_blank' rel='noopener noreferrer'>
           {mediaName}
         </a>
       )}

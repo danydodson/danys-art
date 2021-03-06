@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { enableAbout as enabled, author } from '../../../customize'
+import { enableAbout as enabled, author } from '../../../content/meta/config'
 
 const AboutLink = () => {
   return (
     <>
       {enabled ? (
-        <StyledMainCardName className="main-card-name">
+        <StyledMainCardName className='main-card-name'>
           <h2>
-            <Link to="/about">{author}</Link>
+            <Link to='/about'>{author}</Link>
           </h2>
         </StyledMainCardName>
       ) : (

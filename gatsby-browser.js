@@ -10,9 +10,6 @@ require('prismjs/plugins/line-numbers/prism-line-numbers')
 // Using shell prompt in code blocks
 require('prismjs/plugins/command-line/prism-command-line.css')
 
-// Using solarized light theme
-// require("prismjs/themes/prism-solarizedlight.css")
-
 // You can import missing languages supported by prismjs – https://prismjs.com/
 require('prismjs/components/prism-actionscript')
 require('prismjs/components/prism-applescript')

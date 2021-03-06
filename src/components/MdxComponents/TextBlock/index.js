@@ -4,10 +4,10 @@ import PropTypes from 'prop-types'
 import { theme } from '../../Shared/styles-global'
 import { setThemeVars } from '../../../util/theme-helper'
 // Icons
-import Warning from '../../../../static/icons/warning.svg'
-import Success from '../../../../static/icons/success.svg'
-import Info from '../../../../static/icons/info.svg'
-import Stop from '../../../../static/icons/stop.svg'
+import Warning from '../../../../static/svgs/warning.svg'
+import Success from '../../../../static/svgs/success.svg'
+import Info from '../../../../static/svgs/info.svg'
+import Stop from '../../../../static/svgs/stop.svg'
 
 const TextBlock = ({ theme, children, padding = '2rem 1.5rem' }) => {
   let iconElement
@@ -76,9 +76,8 @@ const StyledTextBlock = styled.div`
   border-color: ${() => setThemeVars('#666', theme.fontColorDark)};
   background: ${() => setThemeVars('#f6f5f8', `#36353b`)};
   /* Based on chosen theme */
-  border-color: ${props => color[props.theme]};
-  background: ${props =>
-    setThemeVars(bgColorLight[props.theme], bgColorDark[props.theme])};
+  border-color: ${(props) => color[props.theme]};
+  background: ${(props) => setThemeVars(bgColorLight[props.theme], bgColorDark[props.theme])};
 `
 
 const StyledIconWrap = styled.div`
@@ -94,6 +93,6 @@ const StyledIconWrap = styled.div`
     /* Default */
     fill: ${() => setThemeVars('#666', theme.fontColorDark)};
     /* Theme */
-    fill: ${props => color[props.theme]};
+    fill: ${(props) => color[props.theme]};
   }
 `

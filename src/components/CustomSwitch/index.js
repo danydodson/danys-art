@@ -3,8 +3,8 @@ import Switch from 'react-switch'
 import { withTheme } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon } from '@fortawesome/free-solid-svg-icons'
-import SunIcon from '../../../static/icons/sun.svg'
-import config from '../../../customize'
+import SunIcon from '../../../static/svgs/sun.svg'
+import config from '../../../content/meta/config'
 
 import './styles.scss'
 
@@ -26,7 +26,7 @@ class CustomSwitch extends Component {
       this.setState({ checked: true })
     }
   }
-  handleToggle = checked => {
+  handleToggle = (checked) => {
     this.setState({ checked })
     // Passed from ToggleMode to change theme
     this.props.onClick()
@@ -34,21 +34,8 @@ class CustomSwitch extends Component {
 
   render() {
     return (
-      <div className="custom-switch">
-        <Switch
-          onChange={this.handleToggle}
-          checked={this.state.checked}
-          offColor="#bbb"
-          onColor="#4a4a4a"
-          uncheckedIcon={
-            <FontAwesomeIcon className="icon-moon" icon={faMoon} />
-          }
-          checkedIcon={<SunIcon className="icon-sun" />}
-          handleDiameter={21}
-          height={23}
-          width={40}
-          onHandleColor="#333"
-        />
+      <div className='custom-switch'>
+        <Switch onChange={this.handleToggle} checked={this.state.checked} offColor='#bbb' onColor='#4a4a4a' uncheckedIcon={<FontAwesomeIcon className='icon-moon' icon={faMoon} />} checkedIcon={<SunIcon className='icon-sun' />} handleDiameter={21} height={23} width={40} onHandleColor='#333' />
       </div>
     )
   }

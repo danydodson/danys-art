@@ -1,8 +1,8 @@
 import { createGlobalStyle, keyframes } from 'styled-components'
 import { isMobile } from 'react-device-detect'
 import { setThemeVars } from '../../util/theme-helper'
-import config from '../../../customize'
-import configStyles from '../../../customize-styles'
+import config from '../../../content/meta/config'
+import configStyles from '../../../content/meta/styles'
 
 const globalVar = {
   primaryColor: '#fff',
@@ -50,29 +50,15 @@ const glowing = keyframes`
     100% { background-position: 0 0; }
 `
 
-const foregroundColor = () =>
-  setThemeVars(theme.fontColorLight, theme.fontColorDark)
+const foregroundColor = () => setThemeVars(theme.fontColorLight, theme.fontColorDark)
 
-const scrollBarColor = () =>
-  setThemeVars(
-    configStyles.scrollbarColorLight,
-    configStyles.scrollbarColorDark
-  )
+const scrollBarColor = () => setThemeVars(configStyles.scrollbarColorLight, configStyles.scrollbarColorDark)
 
-const scrollBarBg = () =>
-  setThemeVars(configStyles.scrollbarBgLight, configStyles.scrollbarBgDark)
+const scrollBarBg = () => setThemeVars(configStyles.scrollbarBgLight, configStyles.scrollbarBgDark)
 
-const scrollBarHover = () =>
-  setThemeVars(
-    configStyles.scrollbarHoverLight,
-    configStyles.scrollbarHoverDark
-  )
+const scrollBarHover = () => setThemeVars(configStyles.scrollbarHoverLight, configStyles.scrollbarHoverDark)
 
-const underlineColor = () =>
-  setThemeVars(
-    configStyles.underlineColorLight,
-    configStyles.underlineColorDark
-  )
+const underlineColor = () => setThemeVars(configStyles.underlineColorLight, configStyles.underlineColorDark)
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -80,12 +66,16 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     transition: background 250ms ease-in, border 250ms ease-in;
+    -ms-overflow-style: ${config.showScrollbar};
+  }
+  
+  ::-webkit-scrollbar {
+    display: ${config.showScrollbar};
   }
 
   body {
     align-items: center;
-    background: ${() =>
-      setThemeVars(theme.bgSubColorLight, theme.bgSubColorDark)};
+    background: ${() => setThemeVars(theme.bgSubColorLight, theme.bgSubColorDark)};
     color: ${foregroundColor};
     font-family: ${configStyles.fontMain + configStyles.fontsBackUp}
   }
@@ -145,17 +135,13 @@ export const GlobalStyles = createGlobalStyle`
 
   .main-header {
     border-bottom: 1px solid ${() => setThemeVars('#dbdbdb', '#2d2d2d')};
-    background: ${() =>
-      setThemeVars(theme.headerColorLight, theme.headerColorDark)};
+    background: ${() => setThemeVars(theme.headerColorLight, theme.headerColorDark)};
   }
 
   .sub-main {
-    -webkit-box-shadow: 0px 0px 8px -5px ${() =>
-      setThemeVars('#000000bf', '#000000bf')};
-    -moz-box-shadow: 0px 0px 8px -5px ${() =>
-      setThemeVars('#000000bf', '#000000bf')};
-    box-shadow: 0px 0px 8px -5px ${() =>
-      setThemeVars('#000000bf', '#000000bf')};
+    -webkit-box-shadow: 0px 0px 8px -5px ${() => setThemeVars('#000000bf', '#000000bf')};
+    -moz-box-shadow: 0px 0px 8px -5px ${() => setThemeVars('#000000bf', '#000000bf')};
+    box-shadow: 0px 0px 8px -5px ${() => setThemeVars('#000000bf', '#000000bf')};
 
     background: ${() => setThemeVars(theme.bgColorLight, theme.bgColorDark)}; 
   }
@@ -170,8 +156,7 @@ export const GlobalStyles = createGlobalStyle`
 
   .profile-texts {
     h4, p, p > a {
-      color: ${() =>
-        setThemeVars(theme.fontSubColorLight, theme.fontSubColorDark)};
+      color: ${() => setThemeVars(theme.fontSubColorLight, theme.fontSubColorDark)};
     };
   }
 
@@ -209,14 +194,9 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .progress-container {
-    background: ${() =>
-      setThemeVars(theme.headerColorLight, theme.headerColorDark)};
+    background: ${() => setThemeVars(theme.headerColorLight, theme.headerColorDark)};
     .progress-bar {
-      background: ${() =>
-        setThemeVars(
-          configStyles.progressBarColorLight,
-          configStyles.progressBarColorLight
-        )};
+      background: ${() => setThemeVars(configStyles.progressBarColorLight, configStyles.progressBarColorLight)};
     }
   }
 
@@ -274,8 +254,7 @@ export const GlobalStyles = createGlobalStyle`
 
   .main-footer {
     color: ${() => setThemeVars('#ccc', theme.subColor)};
-    border-top: 1px solid ${() =>
-      setThemeVars(theme.lightGreyColor, theme.darkColor)};
+    border-top: 1px solid ${() => setThemeVars(theme.lightGreyColor, theme.darkColor)};
     a {
       ${() => setThemeVars(theme.darkColor, theme.primaryColor)};
     }
@@ -283,10 +262,8 @@ export const GlobalStyles = createGlobalStyle`
 
   .post-html {
     blockquote {
-      color: ${() =>
-        setThemeVars(theme.fontSubColorLight, theme.fontSubColorDark)};
-      border-left: 3px solid ${() =>
-        setThemeVars(theme.midGreyColor, theme.midColor)};
+      color: ${() => setThemeVars(theme.fontSubColorLight, theme.fontSubColorDark)};
+      border-left: 3px solid ${() => setThemeVars(theme.midGreyColor, theme.midColor)};
     }
   }
 
@@ -299,12 +276,9 @@ export const GlobalStyles = createGlobalStyle`
 
   .tags {
     &-horizontal {
-      -webkit-box-shadow: 0px 0px 7px -5px ${() =>
-        setThemeVars('#000000bf', '#000000bf')};
-      -moz-box-shadow: 0px 0px 7px -5px ${() =>
-        setThemeVars('#000000bf', '#000000bf')};
-      box-shadow: 0px 0px 7px -5px ${() =>
-        setThemeVars('#000000bf', '#000000bf')};
+      -webkit-box-shadow: 0px 0px 7px -5px ${() => setThemeVars('#000000bf', '#000000bf')};
+      -moz-box-shadow: 0px 0px 7px -5px ${() => setThemeVars('#000000bf', '#000000bf')};
+      box-shadow: 0px 0px 7px -5px ${() => setThemeVars('#000000bf', '#000000bf')};
 
       background: ${() => setThemeVars('#f5f5f5', theme.headerColorDark)};
       border-left: 3px solid ${() => setThemeVars('#bbb', '#444')};
@@ -314,21 +288,18 @@ export const GlobalStyles = createGlobalStyle`
       color: ${() => setThemeVars('#888', '#c9c9c9')}
     }
   }
-  
 
   .tag {
     &-horizontal {  
       background: ${() => setThemeVars('#fff', '#3a3d56')};
       &:hover{
-        background: ${() =>
-          setThemeVars('#fff !important', '#3a3d56 !important')};
+        background: ${() => setThemeVars('#fff !important', '#3a3d56 !important')};
       }
     }
 
     &-vertical {
       &:hover{
-        background: ${() =>
-          setThemeVars(theme.bgColorLight, theme.darkerColor)};
+        background: ${() => setThemeVars(theme.bgColorLight, theme.darkerColor)};
       }
     }
   }
@@ -350,8 +321,7 @@ export const GlobalStyles = createGlobalStyle`
 
   ${'' /* Applies to react live code */}
   .live-highlight {
-      font-family: ${configStyles.fontCodeBlocks +
-        configStyles.fontsBackUp} !important;
+      font-family: ${configStyles.fontCodeBlocks + configStyles.fontsBackUp} !important;
   }
 
   ${'' /* Custom scrollbar styling for non mobile */}

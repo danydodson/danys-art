@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import config from '../../../customize'
+import config from '../../../content/meta/config'
 
 const Image = () => {
   const data = useStaticQuery(graphql`
@@ -21,20 +21,17 @@ const Image = () => {
       }
     }
   `)
+  
   // Loop through all files to find file that matches with image path
-  const image = data.images.edges.find(n => {
+  const image = data.images.edges.find((n) => {
+
     return n.node.relativePath.includes(config.profileImageName)
   })
   if (!image) {
     return null
   }
 
-  return (
-    <Img
-      className="img-profile p-i-test"
-      fluid={image.node.childImageSharp.fluid}
-    />
-  )
+  return <Img className='img-profile p-i-test' fluid={image.node.childImageSharp.fluid} />
 }
 
 export default Image

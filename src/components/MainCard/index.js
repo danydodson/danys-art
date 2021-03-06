@@ -30,7 +30,7 @@ class MainCard extends Component {
   }
 
   // Check if tag in storage exists
-  checkTag = storageTag => {
+  checkTag = (storageTag) => {
     // Input checks
     if (!storageTag) {
       return false
@@ -54,12 +54,8 @@ class MainCard extends Component {
     const tagsByFrequency = {}
     const sortedTags = []
     // Exclude about page & dummy page
-    const filteredPosts = posts.filter(
-      post =>
-        post.node.fields.slug !== '/about/' &&
-        post.node.fields.slug !== '/__do-not-remove/'
-    )
-    filteredPosts.forEach(post => {
+    const filteredPosts = posts.filter((post) => post.node.fields.slug !== '/about/' && post.node.fields.slug !== '/__do-not-remove/')
+    filteredPosts.forEach((post) => {
       let tags = post.node.frontmatter.tags
 
       if (!tags) {
@@ -68,7 +64,7 @@ class MainCard extends Component {
         tags = ['Uncategorized']
       }
 
-      tags.forEach(tag => {
+      tags.forEach((tag) => {
         if (tagsByFrequency[tag]) {
           tagsByFrequency[tag] = tagsByFrequency[tag] + 1 // update frequency
         } else {
@@ -78,7 +74,7 @@ class MainCard extends Component {
       })
     })
 
-    sortedTags.sort(function(a, b) {
+    sortedTags.sort(function (a, b) {
       return tagsByFrequency[b] - tagsByFrequency[a]
     })
 
@@ -88,17 +84,13 @@ class MainCard extends Component {
   filterPosts = () => {
     const posts = this.props.posts
     const filtered = posts.filter(({ node }, i) => {
-      return (
-        this.state.selectedTag === TAG.ALL ||
-        (node.frontmatter.tags &&
-          node.frontmatter.tags.includes(this.state.selectedTag))
-      )
+      return this.state.selectedTag === TAG.ALL || (node.frontmatter.tags && node.frontmatter.tags.includes(this.state.selectedTag))
     })
 
     this.setState({ filteredPosts: filtered })
   }
 
-  handleSelectTag = async tag => {
+  handleSelectTag = async (tag) => {
     // Save current tag in storage
     sessionStorage.setItem('curTag', tag)
     await this.setState({ selectedTag: tag })
@@ -107,23 +99,17 @@ class MainCard extends Component {
 
   render() {
     return (
-      <StyledMainCard className="main-card">
-        <StyledSwitchContainer className="switch-container">
+      <StyledMainCard className='main-card'>
+        <StyledSwitchContainer className='switch-container'>
           <ToggleMode />
         </StyledSwitchContainer>
-        <StyledSubMain className="sub-main">
+        <StyledSubMain className='sub-main'>
           <StyledSubMainInner>
             <Profile home />
             {this.state.filteredPosts.length > 0 ? (
               <StyledTagsPosts>
-                <Tags
-                  selectedTag={this.state.selectedTag}
-                  selectTag={this.handleSelectTag}
-                  tags={this.state.tags}
-                />
-                <PostList
-                  posts={this.state.filteredPosts.slice(0, this.props.loads)}
-                />
+                <Tags selectedTag={this.state.selectedTag} selectTag={this.handleSelectTag} tags={this.state.tags} />
+                <PostList posts={this.state.filteredPosts.slice(0, this.props.loads)} />
               </StyledTagsPosts>
             ) : (
               <div style={{ textAlign: 'center' }}>

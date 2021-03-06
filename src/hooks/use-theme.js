@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import storage from 'local-storage-fallback'
-import config from '../../customize'
+import config from '../../content/meta/config'
 import { theme as globalTheme } from '../components/Shared/styles-global'
 
 function UseTheme(defaultTheme = { mode: config.defaultTheme }) {

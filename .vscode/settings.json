@@ -3,6 +3,7 @@
     "**/node_modules": true,
     "**/.prettierignore": true,
     "**/.cache": true,
+    "**/package-lock.json": true,
     "**/public": true
   }
 }

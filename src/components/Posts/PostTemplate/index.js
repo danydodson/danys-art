@@ -7,31 +7,19 @@ import mediumZoom from 'medium-zoom'
 import storage from 'local-storage-fallback'
 import { isMobile } from 'react-device-detect'
 import { setThemeVars } from '../../../util/theme-helper'
-import { comments } from '../../../../customize'
-import configStyles from '../../../../customize-styles'
+import { comments } from '../../../../content/meta/config'
+import configStyles from '../../../../content/meta/styles'
 import Layout from '../../Layout'
 import HRuler from '../../HRuler'
 import Profile from '../../Profile'
 import SEO from '../../SEO'
-import {
-  FacebookComments,
-  DisqusComments,
-  UtterancesComments
-} from '../../Comments'
+import { FacebookComments, UtterancesComments } from '../../Comments'
 import ToggleMode from '../../Layout/ToggleMode'
 import { theme } from '../../Shared/styles-global'
 import LinkEdgePosts from '../../LinkEdgePosts'
 import ShareButtons from '../../ShareButtons'
-import ChevronRight from '../../../../static/icons/chevron-right.svg'
-import {
-  Primary,
-  Danger,
-  Warning,
-  Success,
-  Info,
-  Collapsable,
-  U
-} from '../../MdxComponents'
+import ChevronRight from '../../../../static/svgs/chevron-right.svg'
+import { Primary, Danger, Warning, Success, Info, Collapsable, U } from '../../MdxComponents'
 
 class PostTemplate extends React.Component {
   constructor(props) {
@@ -64,7 +52,7 @@ class PostTemplate extends React.Component {
     }
   }
 
-  registerUtterancesComments = repo => {
+  registerUtterancesComments = (repo) => {
     // Register utterances if it exists
     if (this.utterancesRef.current) {
       const script = document.createElement('script')
@@ -106,11 +94,9 @@ class PostTemplate extends React.Component {
     if (this.state.script) {
       document.body.removeChild(this.state.script)
       const fbRoot = document.getElementById('fb-root')
-
       if (fbRoot) {
         document.body.removeChild(fbRoot)
       }
-
       this.setState({ script: undefined })
     }
   }
@@ -142,8 +128,7 @@ class PostTemplate extends React.Component {
 
     let mediumZoomBgColor = ''
     const savedTheme = JSON.parse(storage.getItem('theme')) || 'light'
-    mediumZoomBgColor =
-      savedTheme.mode === 'light' ? theme.bgColorLight : theme.bgColorDark
+    mediumZoomBgColor = savedTheme.mode === 'light' ? theme.bgColorLight : theme.bgColorDark
 
     // Apply medium zoom to images
     mediumZoom(filteredImages, {
@@ -156,7 +141,7 @@ class PostTemplate extends React.Component {
   moveAnchorHeadings = () => {
     const target = '.anchor-heading'
     const anchors = Array.from(document.querySelectorAll(target))
-    anchors.forEach(anchor => {
+    anchors.forEach((anchor) => {
       anchor.parentNode.appendChild(anchor)
       anchor.classList.add('after')
       anchor.classList.remove('before')
@@ -164,10 +149,10 @@ class PostTemplate extends React.Component {
   }
 
   // Toggle loading for changing copy texts
-  toggleLoading = text => {
-    this.setState(prevState => {
+  toggleLoading = (text) => {
+    this.setState((prevState) => {
       const updatedTexts = [...prevState.texts]
-      updatedTexts.forEach(t => {
+      updatedTexts.forEach((t) => {
         if (t.id === text.id) {
           t.loadingChange = !t.loadingChange
         }
@@ -187,10 +172,10 @@ class PostTemplate extends React.Component {
       'ul.li': ({ children }) => {
         return (
           <li>
-            <span className="icon-wrap">
-              <ChevronRight className="icon-chevron-right" />
+            <span className='icon-wrap'>
+              <ChevronRight className='icon-chevron-right' />
             </span>
-            <span className="ul-children">{children}</span>
+            <span className='ul-children'>{children}</span>
           </li>
         )
       },
@@ -201,7 +186,7 @@ class PostTemplate extends React.Component {
           </li>
         )
       },
-      hr: () => <HRuler widthInPercent="100" verticalMargin="0.8rem" />,
+      hr: () => <HRuler widthInPercent='100' verticalMargin='0.8rem' />,
       // Use the below components without having to import in *.mdx
       Primary,
       Danger,
@@ -214,20 +199,21 @@ class PostTemplate extends React.Component {
 
     return (
       <Layout showTitle={true} isPostTemplate>
+
         <SEO title={post.frontmatter.title} description={post.excerpt} />
-        <div
-          className="switch-container"
-          style={{ textAlign: 'end', margin: '0 1.1rem' }}
-        >
+
+        <div className='switch-container' style={{ textAlign: 'end', margin: '0 1.1rem' }}>
           <ToggleMode />
         </div>
-        <StyledHTML className="post-html">
+
+        <StyledHTML className='post-html'>
+
           {!isAboutPage && (
             <>
-              <h1 className="post-title">{post.frontmatter.title}</h1>
-              {/* Show tag & date */}
+              <h1 className='post-title'>{post.frontmatter.title}</h1>
+
               <div
-                className="post-data"
+                className='post-data'
                 style={{
                   display: 'flex',
                   justifyContent: 'space-between',
@@ -264,9 +250,11 @@ class PostTemplate extends React.Component {
                   {post.frontmatter.date}
                 </p>
               </div>
+
               <HRuler />
             </>
           )}
+
           {/* Render mdx */}
           <MDXProvider components={mdxComponents}>
             <MDXRenderer>{post.body}</MDXRenderer>
@@ -276,26 +264,22 @@ class PostTemplate extends React.Component {
         {!isAboutPage && (
           <>
             <ShareButtons location={this.state.location} />
-            <LinkEdgePosts pageContext={this.props.pageContext} />
-            <HRuler widthInPercent="97" verticalMargin="0.8rem" />
-            <Profile />
-            <HRuler widthInPercent="97" verticalMargin="0.8rem" />
 
-            {comments.facebook.enabled && (
-              <FacebookComments
-                location={this.state.location}
-                reload={this.registerFacebookComments}
-              />
-            )}
-            {comments.disqus.enabled && comments.disqus.shortName && (
-              <DisqusComments
-                shortName={comments.disqus.shortName}
-                location={this.state.location}
-              />
-            )}
-            {comments.utterances.enabled && comments.utterances.repoUrl && (
+            <LinkEdgePosts pageContext={this.props.pageContext} />
+            
+            <HRuler widthInPercent='97' verticalMargin='0.8rem' />
+            <Profile />
+            <HRuler widthInPercent='97' verticalMargin='0.8rem' />
+            
+            {
+              comments.facebook.enabled &&
+              <FacebookComments location={this.state.location} reload={this.registerFacebookComments} />
+            }
+            {
+              comments.utterances.enabled &&
+              comments.utterances.repoUrl &&
               <UtterancesComments innerRef={this.utterancesRef} />
-            )}
+            }
           </>
         )}
       </Layout>
@@ -328,6 +312,7 @@ const StyledHTML = styled.div`
   font-family: ${configStyles.fontMain + configStyles.fontsBackUp};
   margin-top: 1rem;
   font-size: 105%;
+
   h1 {
     margin-top: 2.5rem;
   }
@@ -397,11 +382,7 @@ const StyledHTML = styled.div`
           width: 0.75rem;
           height: 0.75rem;
           margin-right: 0.5rem;
-          fill: ${() =>
-    setThemeVars(
-      configStyles.fontColorLight,
-      configStyles.fontColorDark
-    )};
+          fill: ${() => setThemeVars(configStyles.fontColorLight, configStyles.fontColorDark)};
         }
       }
       span.ul-children {

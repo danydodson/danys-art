@@ -7,6 +7,7 @@ import { faHandPointer } from '@fortawesome/free-solid-svg-icons'
 import { TAG } from '../../constants'
 
 class Tags extends React.Component {
+
   constructor(props) {
     super(props)
     this.tagRef = React.createRef()
@@ -21,8 +22,7 @@ class Tags extends React.Component {
     if (isMobile) {
       this.setState({
         sticky: this.tagRef.current,
-        topPos:
-          this.tagRef.current.getBoundingClientRect().y + window.pageYOffset,
+        topPos: this.tagRef.current.getBoundingClientRect().y + window.pageYOffset,
         horizontalScroll: this.tagRef.current.querySelector('.tag-list-inner')
       })
       const width = this.tagRef.current.clientWidth
@@ -34,11 +34,7 @@ class Tags extends React.Component {
       let swipedCount = parseInt(localStorage.getItem('swiped_')) || 0
 
       // Display swipe icon animation for the first two sessions
-      if (
-        scrollWidth > width &&
-        swipedCount < 2 &&
-        !sessionStorage.getItem('swiped__')
-      ) {
+      if (scrollWidth > width && swipedCount < 2 && !sessionStorage.getItem('swiped__')) {
         this.setState({ showSwipeIcon: true })
         localStorage.setItem('swiped_', swipedCount + 1)
         sessionStorage.setItem('swiped__', true)
@@ -85,42 +81,25 @@ class Tags extends React.Component {
   }
 
   render() {
+
     const { tags, selectTag, selectedTag } = this.props
+
     const childrenElement = (
-      <div className="tag-list" onScroll={this.handleScrollX}>
-        {isMobile && this.state.showSwipeIcon && (
-          <StyledFA className="icon-hand-ptr" icon={faHandPointer} />
-        )}
+      <div className='tag-list' onScroll={this.handleScrollX}>
+        {isMobile && this.state.showSwipeIcon && <StyledFA className='icon-hand-ptr' icon={faHandPointer} />}
         {/* Used to apply overflow to work with sticky */}
-        <div className="tag-list-inner">
-          <Tag
-            title={TAG.ALL}
-            selectTag={selectTag}
-            selectedTag={selectedTag}
-          />
+        <div className='tag-list-inner'>
+          <Tag title={TAG.ALL} selectTag={selectTag} selectedTag={selectedTag} />
           {tags.map((tag, i) => {
-            return (
-              <Tag
-                key={i}
-                title={tag}
-                selectTag={selectTag}
-                selectedTag={selectedTag}
-              />
-            )
+            return <Tag key={i} title={tag} selectTag={selectTag} selectedTag={selectedTag} />
           })}
         </div>
       </div>
     )
 
-    return !isMobile ? (
-      <StyledTagsVertical className="tags-vertical">
-        {childrenElement}
-      </StyledTagsVertical>
-    ) : (
-      <StyledTagsHorizontal className="tags-horizontal" ref={this.tagRef}>
-        {childrenElement}
-      </StyledTagsHorizontal>
-    )
+    return !isMobile
+      ? (<StyledTagsVertical className='tags-vertical'>{childrenElement}</StyledTagsVertical>)
+      : (<StyledTagsHorizontal className='tags-horizontal' ref={this.tagRef}>{childrenElement}</StyledTagsHorizontal>)
   }
 }
 

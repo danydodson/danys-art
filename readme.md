@@ -1,4 +1,3 @@
-
 ## Description
 
 A ready-to-use, customizable personal blog with minimalistic design

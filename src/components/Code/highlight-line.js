@@ -6,7 +6,7 @@ let highlightStart = false
 
 const highlightClassName = 'gatsby-highlight-code-line'
 
-export const addClassName = lineProps => {
+export const addClassName = (lineProps) => {
   lineProps.className = `${lineProps.className} ${highlightClassName}`
 }
 
@@ -14,12 +14,12 @@ export const addClassName = lineProps => {
 export const linesToHighlight = []
 
 // Detects line number i.e. ```js {1-2, 5}
-export const calculateLinesToHighlight = meta => {
+export const calculateLinesToHighlight = (meta) => {
   const RE = /{([\d,-]+)}/
   if (RE.test(meta)) {
     const strLineNumbers = RE.exec(meta)[1]
     const lineNumbers = rangeParser(strLineNumbers)
-    return index => lineNumbers.includes(index + 1)
+    return (index) => lineNumbers.includes(index + 1)
   } else {
     return () => false
   }
@@ -38,9 +38,7 @@ export const highlightLine = (lineArray, lineProps, index) => {
       // Add highlight-class
       addClassName(lineProps)
       // Remove comment
-      line.content = content
-        .replace('// highlight-line', '')
-        .replace('//highlight-line', '')
+      line.content = content.replace('// highlight-line', '').replace('//highlight-line', '')
     }
 
     // Stop highlighting
@@ -69,7 +67,7 @@ export const highlightLine = (lineArray, lineProps, index) => {
         const lineNumbers = rangeParser(strLineNumbers)
 
         // Add line numbers to highlight + current line indexes
-        lineNumbers.forEach(num => {
+        lineNumbers.forEach((num) => {
           linesToHighlight.push(num + index)
         })
       }

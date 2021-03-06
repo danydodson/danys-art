@@ -24,17 +24,14 @@ const IndexPage = ({ data }) => {
   })
 
   const handleScroll = () => {
-    const lastPostLoaded = document.querySelector(
-      'div.posts-list > a:last-child'
-    )
-    const lastPostLoadedOffset =
-      lastPostLoaded.offsetTop + lastPostLoaded.clientHeight
+    const lastPostLoaded = document.querySelector('div.posts-list > a:last-child')
+    const lastPostLoadedOffset = lastPostLoaded.offsetTop + lastPostLoaded.clientHeight
     const pageOffset = window.pageYOffset + window.innerHeight
 
     if (pageOffset > lastPostLoadedOffset) {
       // Stops loading
       if (posts.length > loaded)
-        setLoaded(prev => {
+        setLoaded((prev) => {
           sessionStorage.setItem('curLoad', prev + loadsPer)
           return prev + loadsPer
         })
@@ -43,7 +40,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title='Home' />
       <MainCard posts={posts} loads={loaded} />
     </Layout>
   )
@@ -51,10 +48,7 @@ const IndexPage = ({ data }) => {
 
 export const pageQuery = graphql`
   query BlogIndexQuery {
-    allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { draft: { ne: true } } }
-    ) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }, filter: { frontmatter: { draft: { ne: true } } }) {
       edges {
         node {
           id

@@ -38,22 +38,19 @@ class ScrollTopButton extends Component {
   }
 
   scrollToTop = () => {
-    let intervalId = setInterval(
-      this.scrollStep.bind(this),
-      this.props.delayInMs
-    )
+    let intervalId = setInterval(this.scrollStep.bind(this), this.props.delayInMs)
     this.setState({ intervalId: intervalId })
   }
 
   render() {
     return this.state.show ? (
       <StyledButton
-        className="btn-scroll-top"
+        className='btn-scroll-top'
         onClick={() => {
           this.scrollToTop()
         }}
       >
-        <FontAwesomeIcon className="icon-chevron" icon={faAngleUp} size="3x" />
+        <FontAwesomeIcon className='icon-chevron' icon={faAngleUp} size='3x' />
       </StyledButton>
     ) : null
   }

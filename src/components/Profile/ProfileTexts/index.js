@@ -1,7 +1,7 @@
 import React from 'react'
 import AboutLink from '../../AboutLink'
 import MediaLinks from '../../MediaLinks'
-import { profileDescription } from '../../../../customize'
+import { profileDescription } from '../../../../content/meta/config'
 // import ProfileLocation from '../ProfileLocation'
 import styled from 'styled-components'
 
@@ -10,14 +10,14 @@ const ProfileTexts = ({ home }) => {
   return (
     <>
       {home ? (
-        <StyledProfileTextsHome className="profile-texts">
+        <StyledProfileTextsHome className='profile-texts'>
           <AboutLink />
           <p>{profileDescription}</p>
           {/* <ProfileLocation /> */}
           {/* <MediaLinks /> */}
         </StyledProfileTextsHome>
       ) : (
-        <StyledProfileTexts className="profile-texts">
+        <StyledProfileTexts className='profile-texts'>
           <h4>WRITTEN BY</h4>
           <AboutLink />
           <p>{profileDescription}</p>

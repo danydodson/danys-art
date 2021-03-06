@@ -8,76 +8,33 @@ import { faGithub, faFacebook, faInstagram, faTwitter, faLinkedin, faMedium } fr
 import HeaderIcon from '../HeaderIcon'
 import ProgressBar from './ProgressBar'
 
-import config from '../../../customize'
-import configStyles from '../../../customize-styles'
+import config from '../../../content/meta/config'
+import configStyles from '../../../content/meta/styles'
 
 const Header = ({ siteTitle, showTitle, isPostTemplate }) => {
   return (
-    <StyledMainHeader className="main-header">
+    <StyledMainHeader className='main-header'>
       {/* Google AdSense */}
-      {config.googleAdSenseId && config.googleAdSenseId !== '' && (
-        <script
-          data-ad-client={config.googleAdSenseId}
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-        ></script>
-      )}
+      {config.googleAdSenseId && config.googleAdSenseId !== '' && <script data-ad-client={config.googleAdSenseId} async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>}
 
       {isPostTemplate && config.useScrollIndicator && <ProgressBar />}
 
-      <StyledMainHeaderInner className="main-header-inner">
-        <h1 style={{ fontSize: '1.5rem' }}>
-          {showTitle && <Link to="/">{`${siteTitle}`}</Link>}
-        </h1>
+      <StyledMainHeaderInner className='main-header-inner'>
+        <h1 style={{ fontSize: '1.5rem' }}>{showTitle && <Link to='/'>{`${siteTitle}`}</Link>}</h1>
         <StyledMediaIcons>
-          <HeaderIcon
-            accountInfo={config.socialMediaLinks.github}
-            mediaName={'github'}
-            preHref={'https://github.com/'}
-            icon={faGithub}
-          />
+          <HeaderIcon accountInfo={config.socialMediaLinks.github} mediaName={'github'} preHref={'https://github.com/'} icon={faGithub} />
 
-          <HeaderIcon
-            accountInfo={config.socialMediaLinks.email}
-            mediaName={'email'}
-            preHref={'mailto:'}
-            icon={faEnvelope}
-          />
+          <HeaderIcon accountInfo={config.socialMediaLinks.email} mediaName={'email'} preHref={'mailto:'} icon={faEnvelope} />
 
-          <HeaderIcon
-            accountInfo={config.socialMediaLinks.facebook}
-            mediaName={'facebook'}
-            preHref={'https://facebook.com/'}
-            icon={faFacebook}
-          />
+          <HeaderIcon accountInfo={config.socialMediaLinks.facebook} mediaName={'facebook'} preHref={'https://facebook.com/'} icon={faFacebook} />
 
-          <HeaderIcon
-            accountInfo={config.socialMediaLinks.instagram}
-            mediaName={'instagram'}
-            preHref={'https://instagram.com/'}
-            icon={faInstagram}
-          />
+          <HeaderIcon accountInfo={config.socialMediaLinks.instagram} mediaName={'instagram'} preHref={'https://instagram.com/'} icon={faInstagram} />
 
-          <HeaderIcon
-            accountInfo={config.socialMediaLinks.twitter}
-            mediaName={'twitter'}
-            preHref={'https://twitter.com/'}
-            icon={faTwitter}
-          />
+          <HeaderIcon accountInfo={config.socialMediaLinks.twitter} mediaName={'twitter'} preHref={'https://twitter.com/'} icon={faTwitter} />
 
-          <HeaderIcon
-            accountInfo={config.socialMediaLinks.linkedIn}
-            mediaName={'linkedin'}
-            preHref={'https://linkedin.com/'}
-            icon={faLinkedin}
-          />
+          <HeaderIcon accountInfo={config.socialMediaLinks.linkedIn} mediaName={'linkedin'} preHref={'https://linkedin.com/'} icon={faLinkedin} />
 
-          <HeaderIcon
-            accountInfo={config.socialMediaLinks.medium}
-            mediaName={'medium'}
-            preHref={'https://medium.com/@'}
-            icon={faMedium}
-          />
+          <HeaderIcon accountInfo={config.socialMediaLinks.medium} mediaName={'medium'} preHref={'https://medium.com/@'} icon={faMedium} />
         </StyledMediaIcons>
       </StyledMainHeaderInner>
     </StyledMainHeader>
@@ -107,7 +64,7 @@ const StyledMainHeaderInner = styled.div`
   align-items: center;
   height: 55px;
   margin: 0 auto;
-  max-width: ${props => props.theme.maxWidthSite}px;
+  max-width: ${(props) => props.theme.maxWidthSite}px;
   padding: 0.6rem;
   h1 {
     font-weight: 400;

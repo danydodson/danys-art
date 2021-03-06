@@ -1,25 +1,13 @@
 import React from 'react'
-import config from '../../../customize'
-import {
-  EmailShareButton,
-  FacebookShareButton,
-  RedditShareButton,
-  TwitterShareButton,
-  LinkedinShareButton
-} from 'react-share'
-import {
-  EmailIcon,
-  FacebookIcon,
-  RedditIcon,
-  TwitterIcon,
-  LinkedinIcon
-} from 'react-share'
+import config from '../../../content/meta/config'
+import { EmailShareButton, FacebookShareButton, RedditShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share'
+import { EmailIcon, FacebookIcon, RedditIcon, TwitterIcon, LinkedinIcon } from 'react-share'
 
 import './styles.scss'
 
 const ShareButtons = ({ location }) => {
   return (
-    <div className="share-buttons-wrap">
+    <div className='share-buttons-wrap'>
       {config.shareButtons.email && (
         <EmailShareButton url={location}>
           <EmailIcon round size={32} />

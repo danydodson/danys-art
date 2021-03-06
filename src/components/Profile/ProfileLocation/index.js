@@ -1,21 +1,14 @@
 import React from 'react'
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { location } from '../../../../customize'
+import { location } from '../../../../content/meta/config'
 import styled from 'styled-components'
 
 const ProfileLocation = () => {
   return location ? (
-    <StyledTextsLocation className="profile-texts-location">
-      <a
-        href={`https://www.google.com/maps/search/${location}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon
-          className="icon-fa icon-location"
-          icon={faMapMarkerAlt}
-        />
+    <StyledTextsLocation className='profile-texts-location'>
+      <a href={`https://www.google.com/maps/search/${location}`} target='_blank' rel='noopener noreferrer'>
+        <FontAwesomeIcon className='icon-fa icon-location' icon={faMapMarkerAlt} />
         {location}
       </a>
     </StyledTextsLocation>

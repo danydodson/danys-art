@@ -13,18 +13,15 @@ const ProgressBar = () => {
   }, [])
 
   const handleScroll = () => {
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop
-    const height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
     const scrolled = (winScroll / height) * 100
     barRef.current.style.width = scrolled + '%'
   }
 
   return (
-    <div className="progress-container">
-      <div className="progress-bar" ref={barRef} />
+    <div className='progress-container'>
+      <div className='progress-bar' ref={barRef} />
     </div>
   )
 }

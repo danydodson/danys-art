@@ -9,13 +9,12 @@ import './styles/main.scss'
 const comments = ['//highlight-start', '//highlight-end']
 
 // Remote highlight comments
-const removeHighlightComments = line => {
-
+const removeHighlightComments = (line) => {
   let newStr = line
 
   const trimmed = line.replace(/\s/g, '')
 
-  comments.forEach(comment => {
+  comments.forEach((comment) => {
     if (trimmed === comment) {
       newStr = null
     }
@@ -26,16 +25,13 @@ const removeHighlightComments = line => {
   }
 
   if (newStr) {
-    newStr = newStr
-      .replace('//highlight-line', '')
-      .replace('// highlight-line', '')
+    newStr = newStr.replace('//highlight-line', '').replace('// highlight-line', '')
   }
 
   return newStr
 }
 
 const Code = ({ codeString, language, metastring, ...props }) => {
-
   const [copyBtnText, setCopyBtnText] = useState('Copy')
 
   const [copyText, setCopyText] = useState('')
@@ -44,7 +40,6 @@ const Code = ({ codeString, language, metastring, ...props }) => {
 
   // Set up texts to be copied on copy button
   useEffect(() => {
-
     let newStr = ''
     // Remove highlight comments
     let line = ''
@@ -77,9 +72,9 @@ const Code = ({ codeString, language, metastring, ...props }) => {
   if (props['react-live']) {
     return (
       <LiveProvider code={codeString} noInline={true} theme={undefined}>
-        <LiveEditor className="live-highlight" style={undefined} />
-        <LiveError className="live-error" />
-        <LivePreview className="live-preview" />
+        <LiveEditor className='live-highlight' style={undefined} />
+        <LiveError className='live-error' />
+        <LivePreview className='live-preview' />
       </LiveProvider>
     )
   }
@@ -98,21 +93,14 @@ const Code = ({ codeString, language, metastring, ...props }) => {
   const shouldHighlightLine = calculateLinesToHighlight(metastring)
 
   return (
-    <Highlight
-      {...defaultProps}
-      code={codeString}
-      language={language}
-      theme={false}
-    >
+    <Highlight {...defaultProps} code={codeString} language={language} theme={false}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
         return (
-          <div className="gatsby-highlight" data-language={language}>
-            <div className="badge-btn-wrap">
-              <div className={`language-badge language-badge-${language}`}>
-                {language.toUpperCase()}
-              </div>
+          <div className='gatsby-highlight' data-language={language}>
+            <div className='badge-btn-wrap'>
+              <div className={`language-badge language-badge-${language}`}>{language.toUpperCase()}</div>
               <CopyToClipboard text={copyText} onCopy={handleCopy}>
-                <button className="btn-copy">{copyBtnText}</button>
+                <button className='btn-copy'>{copyBtnText}</button>
               </CopyToClipboard>
             </div>
             <pre className={className} style={style}>

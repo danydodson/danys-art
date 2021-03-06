@@ -12,14 +12,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: slug
     })
   }
+
 }
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
 
-  const postTemplate = path.resolve(
-    'src/components/Posts/PostTemplate/index.js'
-  )
+  const { createPage } = actions
+  const postTemplate = path.resolve('src/components/Posts/PostTemplate/index.js')
 
   return graphql(`
     {
@@ -40,15 +39,18 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `).then(res => {
+  `).then((res) => {
     if (res.errors) {
       return Promise.reject(res.errors)
     }
-    // console.log(JSON.stringify(res, null, 4))
-    
+
+    console.log(JSON.stringify(res, null, 4))
+
     // Create pages & register paths
     const edges = res.data.allMdx.edges
+
     edges.forEach((edge, i) => {
+
       const node = edge.node
 
       const prev = getPrevAvailableNode(edges, i + 1)
@@ -69,7 +71,6 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }
 
-// Get next available prev node that's not about, draft, and dummy post
 const getPrevAvailableNode = (edges, index) => {
   let retVal
 
@@ -94,19 +95,18 @@ const getNextAvailableNode = (edges, index) => {
   return retVal
 }
 
-// Skip node if it's about, draft, or dummy post
-const skipNode = node => {
+const skipNode = (node) => {
   return isAboutPage(node) || isDraft(node) || isDummy(node)
 }
 
-const isAboutPage = node => {
+const isAboutPage = (node) => {
   return node.fields.slug === '/about/'
 }
 
-const isDraft = node => {
+const isDraft = (node) => {
   return node.frontmatter.draft === true
 }
 
-const isDummy = node => {
+const isDummy = (node) => {
   return node.frontmatter.tags && node.frontmatter.tags.includes('___dummy*')
 }

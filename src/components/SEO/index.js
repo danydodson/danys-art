@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
 function SEO({ description, lang, meta, title }) {
+  
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -63,13 +64,10 @@ function SEO({ description, lang, meta, title }) {
       />
       <Helmet>
         {/* Google Font: IBM Plex Sans, Oxanium */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Oxanium&display=swap"
-          rel="stylesheet"
-        />
+        <link href='https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Oxanium&display=swap' rel='stylesheet' />
 
         {/* Facebook comments moderation */}
-        <meta property="fb:app_id" content={process.env.FB_APP_ID} />
+        <meta property='fb:app_id' content={process.env.FB_APP_ID} />
       </Helmet>
     </>
   )
