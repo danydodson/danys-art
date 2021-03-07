@@ -23,14 +23,6 @@ module.exports = {
       }
     },
 
-    // Read pages files
-    // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     path: `${__dirname}/content/parts`
-    //   }
-    // },
-
     // Read markdown/mdx files
     {
       resolve: 'gatsby-source-filesystem',

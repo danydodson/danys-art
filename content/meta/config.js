@@ -80,8 +80,8 @@ const config = {
   breakCodeLines: false,
   showTimeToRead: true,
   faviconSrc: `static/icons/favicon.png`,
-  gaTrackingId: `${process.env.GA_TRACKING_ID}`,
-  googleAdSenseId: process.env.GA_AD_SENSE_ID
+  gaTrackingId: `${process.env.GOOGLE_TRACKING_ID}`,
+  googleAdSenseId: process.env.GOOGLE_AD_SENSE_ID
 }
 
 module.exports = config
