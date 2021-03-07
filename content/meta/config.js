@@ -28,6 +28,10 @@ const config = {
       accountName: 'danydodson',
       showHeaderIcon: true
     },
+    codepen: {
+      accountName: 'danydodson',
+      showHeaderIcon: true
+    },
     facebook: {
       accountName: 'danydodson',
       showHeaderIcon: false
