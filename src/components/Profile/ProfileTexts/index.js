@@ -1,23 +1,23 @@
-import React from 'react'
-import AboutLink from '../../AboutLink'
-import MediaLinks from '../../MediaLinks'
-import { profileDescription } from '../../../../content/meta/config'
+import React from 'react';
+import AboutLink from '../../AboutLink';
+import MediaLinks from '../../MediaLinks';
+import { profileDescription } from '../../../../content/meta/config';
 // import ProfileLocation from '../ProfileLocation'
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 // Renders in different layout when home is specified
 const ProfileTexts = ({ home }) => {
   return (
     <>
       {home ? (
-        <StyledProfileTextsHome className='profile-texts'>
+        <StyledProfileTextsHome className="profile-texts">
           <AboutLink />
           <p>{profileDescription}</p>
           {/* <ProfileLocation /> */}
           {/* <MediaLinks /> */}
         </StyledProfileTextsHome>
       ) : (
-        <StyledProfileTexts className='profile-texts'>
+        <StyledProfileTexts className="profile-texts">
           <h4>WRITTEN BY</h4>
           <AboutLink />
           <p>{profileDescription}</p>
@@ -26,10 +26,10 @@ const ProfileTexts = ({ home }) => {
         </StyledProfileTexts>
       )}
     </>
-  )
-}
+  );
+};
 
-export default ProfileTexts
+export default ProfileTexts;
 
 const StyledProfileTexts = styled.div`
   margin: 0 1rem;
@@ -48,7 +48,7 @@ const StyledProfileTexts = styled.div`
       margin: 0.3rem 0;
     }
   }
-`
+`;
 const StyledProfileTextsHome = styled.div`
   display: flex;
   flex-direction: column;
@@ -75,4 +75,4 @@ const StyledProfileTextsHome = styled.div`
       margin: 0.3rem 0;
     }
   }
-`
+`;

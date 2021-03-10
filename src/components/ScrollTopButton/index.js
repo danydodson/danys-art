@@ -1,62 +1,60 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
 class ScrollTopButton extends Component {
   _isMounted = false
   state = {
     intervalId: 0,
     scrollPosition: 0,
-    show: false
+    show: false,
   }
 
   componentDidMount() {
-    this._isMounted = true
+    this._isMounted = true;
     window.addEventListener('scroll', () => {
       if (window.scrollY > 20) {
         if (this._isMounted) {
-          this.setState({ show: true })
+          this.setState({ show: true });
         }
-      } else {
-        if (this._isMounted) {
-          this.setState({ show: false })
-        }
+      } else if (this._isMounted) {
+        this.setState({ show: false });
       }
-    })
+    });
   }
 
   componentWillUnmount() {
-    this._isMounted = false
+    this._isMounted = false;
   }
 
   scrollStep = () => {
     if (window.pageYOffset === 0) {
-      clearInterval(this.state.intervalId)
+      clearInterval(this.state.intervalId);
     }
-    window.scroll(0, window.pageYOffset - this.props.scrollStepInPx)
+    window.scroll(0, window.pageYOffset - this.props.scrollStepInPx);
   }
 
   scrollToTop = () => {
-    let intervalId = setInterval(this.scrollStep.bind(this), this.props.delayInMs)
-    this.setState({ intervalId: intervalId })
+    const intervalId = setInterval(this.scrollStep.bind(this), this.props.delayInMs);
+    this.setState({ intervalId });
   }
 
   render() {
     return this.state.show ? (
       <StyledButton
-        className='btn-scroll-top'
+        className="btn-scroll-top"
         onClick={() => {
-          this.scrollToTop()
+          this.scrollToTop();
         }}
       >
-        <FontAwesomeIcon className='icon-chevron' icon={faAngleUp} size='3x' />
+        <FontAwesomeIcon className="icon-chevron" icon={faAngleUp} size="3x" />
       </StyledButton>
-    ) : null
+    ) : null;
   }
 }
 
-export default ScrollTopButton
+export default ScrollTopButton;
 
 const StyledButton = styled.button`
   cursor: pointer;
@@ -74,4 +72,4 @@ const StyledButton = styled.button`
   &:hover {
     opacity: 1;
   }
-`
+`;

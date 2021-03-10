@@ -1,28 +1,28 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import config from '../../../content/meta/config'
-import RSS from '../../../static/svgs/rss.svg'
-import { setThemeVars } from '../../util/theme-helper'
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
+import config from '../../../content/meta/config';
+import RSS from '../../../static/svgs/rss.svg';
+import { setThemeVars } from '../../util/theme-helper';
 
 const Footer = () => {
   return (
-    <StyledFooter className='main-footer'>
+    <StyledFooter className="main-footer">
       <div />
       <div>
         <span>© {new Date().getFullYear()} </span>
-        <StyledA href={config.footerLink} target='_blank' rel='noopener noreferrer'>
+        <StyledA href={config.footerLink} target="_blank" rel="noopener noreferrer">
           {config.author}
         </StyledA>
       </div>
-      <Link to='/rss.xml'>
+      <Link to="/rss.xml">
         <StyledRSS />
       </Link>
     </StyledFooter>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -36,11 +36,11 @@ const StyledFooter = styled.footer`
   @media (max-width: 500px) {
     font-size: 0.77rem;
   }
-`
-const StyledA = styled.a``
+`;
+const StyledA = styled.a``;
 
 const StyledRSS = styled(RSS)`
   width: 20px;
   height: 20px;
   fill: ${() => setThemeVars('#aaa', '#888')};
-`
+`;

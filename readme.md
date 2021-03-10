@@ -10,7 +10,7 @@ A ready-to-use, customizable personal blog with minimalistic design
 
 - Simple blog with responsive design
 
-- Light / Dark Mode Switch
+- Light / Dark Mode Switchk=-
 
 - Fast !
 

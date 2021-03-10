@@ -1,11 +1,11 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import styled from 'styled-components'
-import { setThemeVars } from '../../../util/theme-helper'
-import { theme } from '../../Shared/styles-global'
-import config from '../../../../content/meta/config'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock } from '@fortawesome/free-solid-svg-icons'
+import React from 'react';
+import { Link } from 'gatsby';
+import styled from 'styled-components';
+import { setThemeVars } from '../../../util/theme-helper';
+import { theme } from '../../Shared/styles-global';
+import config from '../../../../content/meta/config';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock } from '@fortawesome/free-solid-svg-icons';
 
 const PostCard = ({ id, title, date, path, excerpt, timeToRead }) => {
   return (
@@ -15,7 +15,7 @@ const PostCard = ({ id, title, date, path, excerpt, timeToRead }) => {
           <h3>{title}</h3>
           {config.showTimeToRead && (
             <span>
-              <FontAwesomeIcon className='icon-clock' icon={faClock} size='xs' />
+              <FontAwesomeIcon className="icon-clock" icon={faClock} size="xs" />
               {timeToRead} minute read
             </span>
           )}
@@ -23,10 +23,10 @@ const PostCard = ({ id, title, date, path, excerpt, timeToRead }) => {
         </StyledPostCard>
       </Link>
     </>
-  )
-}
+  );
+};
 
-export default PostCard
+export default PostCard;
 
 const StyledPostCard = styled.div`
   cursor: pointer;
@@ -65,4 +65,4 @@ const StyledPostCard = styled.div`
       background: transparent;
     }
   }
-`
+`;

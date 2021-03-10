@@ -1,109 +1,109 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import Profile from '../Profile'
-import Tags from '../Tags'
-import PostList from '../Posts/PostList'
-import Loader from '../Loader'
-import ToggleMode from '../Layout/ToggleMode'
-import { isMobile } from 'react-device-detect'
-import { TAG } from '../../constants'
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import Profile from '../Profile';
+import Tags from '../Tags';
+import PostList from '../Posts/PostList';
+import Loader from '../Loader';
+import ToggleMode from '../Layout/ToggleMode';
+import { isMobile } from 'react-device-detect';
+import { TAG } from '../../constants';
 
 class MainCard extends Component {
   state = {
     selectedTag: TAG.ALL,
     filteredPosts: [],
-    tags: []
+    tags: [],
   }
 
   componentDidMount() {
     // Get current viewing tag from storage
-    let curTag = sessionStorage.getItem('curTag') || TAG.ALL
-    const tagExists = this.checkTag(curTag)
+    let curTag = sessionStorage.getItem('curTag') || TAG.ALL;
+    const tagExists = this.checkTag(curTag);
     // If saved tag in storage doesn't exist among posts, set to "all"
     if (!tagExists) {
-      curTag = TAG.ALL
+      curTag = TAG.ALL;
     }
     this.setState({ selectedTag: curTag }, () => {
-      this.filterPosts()
-      this.filterTags()
-    })
+      this.filterPosts();
+      this.filterTags();
+    });
   }
 
   // Check if tag in storage exists
   checkTag = (storageTag) => {
     // Input checks
     if (!storageTag) {
-      return false
+      return false;
     }
     if (storageTag === TAG.ALL) {
-      return true
+      return true;
     }
-    const posts = this.props.posts
+    const { posts } = this.props;
     for (let i = 0; i < posts.length; i++) {
-      const tags = posts[i].node.frontmatter.tags
+      const { tags } = posts[i].node.frontmatter;
       if (tags && tags.length > 0 && tags.includes(storageTag)) {
-        return true
+        return true;
       }
     }
-    return false
+    return false;
   }
 
   // Filter tags and sort them by occurrences
   filterTags = () => {
-    const posts = this.props.posts
-    const tagsByFrequency = {}
-    const sortedTags = []
+    const { posts } = this.props;
+    const tagsByFrequency = {};
+    const sortedTags = [];
     // Exclude about page & dummy page
-    const filteredPosts = posts.filter((post) => post.node.fields.slug !== '/about/' && post.node.fields.slug !== '/__do-not-remove/')
+    const filteredPosts = posts.filter((post) => post.node.fields.slug !== '/about/' && post.node.fields.slug !== '/__do-not-remove/');
     filteredPosts.forEach((post) => {
-      let tags = post.node.frontmatter.tags
+      let { tags } = post.node.frontmatter;
 
       if (!tags) {
         // Register tag to the post if does not have any
-        post.node.frontmatter.tags = ['Uncategorized']
-        tags = ['Uncategorized']
+        post.node.frontmatter.tags = ['Uncategorized'];
+        tags = ['Uncategorized'];
       }
 
       tags.forEach((tag) => {
         if (tagsByFrequency[tag]) {
-          tagsByFrequency[tag] = tagsByFrequency[tag] + 1 // update frequency
+          tagsByFrequency[tag] = tagsByFrequency[tag] + 1; // update frequency
         } else {
-          tagsByFrequency[tag] = 1
-          sortedTags.push(tag)
+          tagsByFrequency[tag] = 1;
+          sortedTags.push(tag);
         }
-      })
-    })
+      });
+    });
 
-    sortedTags.sort(function (a, b) {
-      return tagsByFrequency[b] - tagsByFrequency[a]
-    })
+    sortedTags.sort((a, b) => {
+      return tagsByFrequency[b] - tagsByFrequency[a];
+    });
 
-    this.setState({ tags: sortedTags })
+    this.setState({ tags: sortedTags });
   }
 
   filterPosts = () => {
-    const posts = this.props.posts
+    const { posts } = this.props;
     const filtered = posts.filter(({ node }, i) => {
-      return this.state.selectedTag === TAG.ALL || (node.frontmatter.tags && node.frontmatter.tags.includes(this.state.selectedTag))
-    })
+      return this.state.selectedTag === TAG.ALL || (node.frontmatter.tags && node.frontmatter.tags.includes(this.state.selectedTag));
+    });
 
-    this.setState({ filteredPosts: filtered })
+    this.setState({ filteredPosts: filtered });
   }
 
   handleSelectTag = async (tag) => {
     // Save current tag in storage
-    sessionStorage.setItem('curTag', tag)
-    await this.setState({ selectedTag: tag })
-    await this.filterPosts()
+    sessionStorage.setItem('curTag', tag);
+    await this.setState({ selectedTag: tag });
+    await this.filterPosts();
   }
 
   render() {
     return (
-      <StyledMainCard className='main-card'>
-        <StyledSwitchContainer className='switch-container'>
+      <StyledMainCard className="main-card">
+        <StyledSwitchContainer className="switch-container">
           <ToggleMode />
         </StyledSwitchContainer>
-        <StyledSubMain className='sub-main'>
+        <StyledSubMain className="sub-main">
           <StyledSubMainInner>
             <Profile home />
             {this.state.filteredPosts.length > 0 ? (
@@ -119,13 +119,13 @@ class MainCard extends Component {
           </StyledSubMainInner>
         </StyledSubMain>
       </StyledMainCard>
-    )
+    );
   }
 }
 
-export default MainCard
+export default MainCard;
 
-let StyledTagsPosts = styled.div``
+let StyledTagsPosts = styled.div``;
 
 StyledTagsPosts = styled.div`
   position: relative;
@@ -157,7 +157,7 @@ StyledTagsPosts = styled.div`
       }
     }
   }
-`
+`;
 if (!isMobile) {
   StyledTagsPosts = styled.div`
     position: relative;
@@ -168,7 +168,7 @@ if (!isMobile) {
     @media (max-width: 500px) {
       padding: 0rem 1rem 1rem 1rem;
     }
-  `
+  `;
 }
 
 const StyledMainCard = styled.div`
@@ -178,7 +178,7 @@ const StyledMainCard = styled.div`
   @media (max-width: 500px) {
     padding: 0;
   }
-`
+`;
 
 const StyledSubMain = styled.div`
   position: relative;
@@ -189,14 +189,14 @@ const StyledSubMain = styled.div`
     margin-top: 1rem;
     border-radius: 0px;
   }
-`
+`;
 
-let StyledSubMainInner = styled.div``
+let StyledSubMainInner = styled.div``;
 
 if (!isMobile) {
   StyledSubMainInner = styled.div`
     transform: translateY(-25px);
-  `
+  `;
 }
 
 const StyledSwitchContainer = styled.div`
@@ -210,4 +210,4 @@ const StyledSwitchContainer = styled.div`
   @media (max-width: 500px) {
     right: 10px;
   }
-`
+`;

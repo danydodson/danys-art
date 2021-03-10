@@ -1,21 +1,20 @@
-import React from 'react'
-import Tag from './Tag'
-import { isMobile } from 'react-device-detect'
-import styled, { keyframes } from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHandPointer } from '@fortawesome/free-solid-svg-icons'
-import { TAG } from '../../constants'
+import React from 'react';
+import Tag from './Tag';
+import { isMobile } from 'react-device-detect';
+import styled, { keyframes } from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHandPointer } from '@fortawesome/free-solid-svg-icons';
+import { TAG } from '../../constants';
 
 class Tags extends React.Component {
-
   constructor(props) {
-    super(props)
-    this.tagRef = React.createRef()
+    super(props);
+    this.tagRef = React.createRef();
     this.state = {
       sticky: undefined,
       topPos: undefined,
-      showSwipeIcon: false
-    }
+      showSwipeIcon: false,
+    };
   }
 
   componentDidMount() {
@@ -23,87 +22,86 @@ class Tags extends React.Component {
       this.setState({
         sticky: this.tagRef.current,
         topPos: this.tagRef.current.getBoundingClientRect().y + window.pageYOffset,
-        horizontalScroll: this.tagRef.current.querySelector('.tag-list-inner')
-      })
-      const width = this.tagRef.current.clientWidth
-      const scroll = this.tagRef.current.querySelector('.tag-list-inner')
-      const scrollWidth = scroll.scrollWidth
+        horizontalScroll: this.tagRef.current.querySelector('.tag-list-inner'),
+      });
+      const width = this.tagRef.current.clientWidth;
+      const scroll = this.tagRef.current.querySelector('.tag-list-inner');
+      const { scrollWidth } = scroll;
       // Scroll to saved position
-      const scrollPos = sessionStorage.getItem('scrollX_') || 0
-      scroll.scrollLeft = scrollPos
-      let swipedCount = parseInt(localStorage.getItem('swiped_')) || 0
+      const scrollPos = sessionStorage.getItem('scrollX_') || 0;
+      scroll.scrollLeft = scrollPos;
+      const swipedCount = parseInt(localStorage.getItem('swiped_')) || 0;
 
       // Display swipe icon animation for the first two sessions
       if (scrollWidth > width && swipedCount < 2 && !sessionStorage.getItem('swiped__')) {
-        this.setState({ showSwipeIcon: true })
-        localStorage.setItem('swiped_', swipedCount + 1)
-        sessionStorage.setItem('swiped__', true)
+        this.setState({ showSwipeIcon: true });
+        localStorage.setItem('swiped_', swipedCount + 1);
+        sessionStorage.setItem('swiped__', true);
       }
 
-      window.addEventListener('scroll', this.detectSticky)
+      window.addEventListener('scroll', this.detectSticky);
     }
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.detectSticky)
+    window.removeEventListener('scroll', this.detectSticky);
   }
 
   detectSticky = () => {
-    const { sticky, topPos } = this.state
-    const offset = topPos - window.pageYOffset
-    const activated = offset <= 0
-    const activatedNear = activated && offset >= -55
+    const { sticky, topPos } = this.state;
+    const offset = topPos - window.pageYOffset;
+    const activated = offset <= 0;
+    const activatedNear = activated && offset >= -55;
 
     if (activatedNear) {
-      sticky.classList.add('moveToBotAnimate')
+      sticky.classList.add('moveToBotAnimate');
     } else if (activated) {
-      sticky.classList.add('moveToBot')
+      sticky.classList.add('moveToBot');
     } else {
-      this.unmountTagsAnimation()
+      this.unmountTagsAnimation();
     }
   }
 
   unmountTagsAnimation = () => {
-    const sticky = this.tagRef.current
-    sticky.classList.remove('moveToBot')
-    sticky.classList.remove('moveToBotAnimate')
+    const sticky = this.tagRef.current;
+    sticky.classList.remove('moveToBot');
+    sticky.classList.remove('moveToBotAnimate');
   }
 
   handleScrollX = () => {
     if (this.state.sticky && this.state.horizontalScroll) {
-      const width = this.state.sticky.clientWidth
-      const scrollWidth = this.state.horizontalScroll.scrollWidth
+      const width = this.state.sticky.clientWidth;
+      const { scrollWidth } = this.state.horizontalScroll;
       if (scrollWidth > width) {
-        const scrolledPos = this.state.horizontalScroll.scrollLeft
-        sessionStorage.setItem('scrollX_', scrolledPos)
+        const scrolledPos = this.state.horizontalScroll.scrollLeft;
+        sessionStorage.setItem('scrollX_', scrolledPos);
       }
     }
   }
 
   render() {
-
-    const { tags, selectTag, selectedTag } = this.props
+    const { tags, selectTag, selectedTag } = this.props;
 
     const childrenElement = (
-      <div className='tag-list' onScroll={this.handleScrollX}>
-        {isMobile && this.state.showSwipeIcon && <StyledFA className='icon-hand-ptr' icon={faHandPointer} />}
+      <div className="tag-list" onScroll={this.handleScrollX}>
+        {isMobile && this.state.showSwipeIcon && <StyledFA className="icon-hand-ptr" icon={faHandPointer} />}
         {/* Used to apply overflow to work with sticky */}
-        <div className='tag-list-inner'>
+        <div className="tag-list-inner">
           <Tag title={TAG.ALL} selectTag={selectTag} selectedTag={selectedTag} />
           {tags.map((tag, i) => {
-            return <Tag key={i} title={tag} selectTag={selectTag} selectedTag={selectedTag} />
+            return <Tag key={i} title={tag} selectTag={selectTag} selectedTag={selectedTag} />;
           })}
         </div>
       </div>
-    )
+    );
 
     return !isMobile
-      ? (<StyledTagsVertical className='tags-vertical'>{childrenElement}</StyledTagsVertical>)
-      : (<StyledTagsHorizontal className='tags-horizontal' ref={this.tagRef}>{childrenElement}</StyledTagsHorizontal>)
+      ? (<StyledTagsVertical className="tags-vertical">{childrenElement}</StyledTagsVertical>)
+      : (<StyledTagsHorizontal className="tags-horizontal" ref={this.tagRef}>{childrenElement}</StyledTagsHorizontal>);
   }
 }
 
-export default Tags
+export default Tags;
 
 const StyledTagsVertical = styled.div`
   margin-top: 0.5rem;
@@ -129,7 +127,7 @@ const StyledTagsVertical = styled.div`
       }
     }
   }
-`
+`;
 
 const StyledTagsHorizontal = styled.div`
   position: static;
@@ -157,7 +155,7 @@ const StyledTagsHorizontal = styled.div`
       }
     }
   }
-`
+`;
 const swipeLeft = keyframes`
   0% {
     opacity: 1;
@@ -174,7 +172,7 @@ const swipeLeft = keyframes`
     transform: translateX(-35%);
     bottom: 5px;
   }
-`
+`;
 
 const StyledFA = styled(FontAwesomeIcon)`
   position: absolute;
@@ -182,4 +180,4 @@ const StyledFA = styled(FontAwesomeIcon)`
   right: 20%;
   transform: translateX(-20%);
   animation: ${swipeLeft} 2000ms forwards 1500ms ease-in;
-`
+`;

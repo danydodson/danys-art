@@ -6,12 +6,12 @@
 const styleConfig = {
   /* Fonts
     ========================================= */
-  fontMain: `'IBM Plex Sans'`,
-  fontProfile: `'Oxanium'`,
-  fontCodeBlocks: `Menlo, Monaco, monospace`,
+  fontMain: '\'IBM Plex Sans\'',
+  fontProfile: '\'Oxanium\'',
+  fontCodeBlocks: 'Menlo, Monaco, monospace',
 
   // These fonts will be used if above fonts are unavailable
-  fontsBackUp: `, sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue'`,
+  fontsBackUp: ', sans-serif, -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen, Ubuntu, Cantarell, \'Open Sans\', \'Helvetica Neue\'',
 
   /* Colors for each Light / Dark Theme
     ========================================= */
@@ -48,9 +48,9 @@ const styleConfig = {
 
   /* Scroll Progress Bar Color */
   progressBarColorLight: '#8b8ed3',
-  progressBarColorDark: '#838da4'
+  progressBarColorDark: '#838da4',
 
   /* To customize code blocks, modify /src/components/Code/styles/* */
-}
+};
 
-module.exports = styleConfig
+module.exports = styleConfig;

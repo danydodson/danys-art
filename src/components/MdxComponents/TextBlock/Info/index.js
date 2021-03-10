@@ -1,8 +1,8 @@
-import React from 'react'
-import TextBlock from '../index'
+import React from 'react';
+import TextBlock from '../index';
 
 const Info = ({ children, padding }) => {
-  return <TextBlock theme='info' children={children} padding={padding} />
-}
+  return <TextBlock theme="info" children={children} padding={padding} />;
+};
 
-export default Info
+export default Info;

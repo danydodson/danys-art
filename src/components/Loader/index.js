@@ -1,6 +1,6 @@
-import React from 'react'
-import styled, { keyframes } from 'styled-components'
-import { theme } from '../Shared/styles-global'
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
+import { theme } from '../Shared/styles-global';
 
 const loader = keyframes`
   0% {
@@ -9,7 +9,7 @@ const loader = keyframes`
   100% {
     transform: rotate(360deg);
   }
-`
+`;
 
 const StyledLoader = styled.div`
   display: inline-block;
@@ -37,7 +37,7 @@ const StyledLoader = styled.div`
   & div:nth-child(3) {
     animation-delay: -150ms;
   }
-`
+`;
 
 const Loader = () => {
   return (
@@ -47,7 +47,7 @@ const Loader = () => {
       <div />
       <div />
     </StyledLoader>
-  )
-}
+  );
+};
 
-export default Loader
+export default Loader;

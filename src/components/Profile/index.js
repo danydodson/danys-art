@@ -1,28 +1,28 @@
-import React from 'react'
-import styled from 'styled-components'
-import ProfileTexts from './ProfileTexts'
-import ProfileImg from './ProfileImg'
-import { fontProfile, fontsBackUp } from '../../../content/meta/styles'
+import React from 'react';
+import styled from 'styled-components';
+import ProfileTexts from './ProfileTexts';
+import ProfileImg from './ProfileImg';
+import { fontProfile, fontsBackUp } from '../../../content/meta/styles';
 
 const Profile = ({ home }) => {
   return (
     <>
       {home ? (
-        <StyledProfileHome className='profile-home'>
+        <StyledProfileHome className="profile-home">
           <ProfileImg />
           <ProfileTexts home />
         </StyledProfileHome>
       ) : (
-        <StyledProfile className='profile'>
+        <StyledProfile className="profile">
           <ProfileImg />
           <ProfileTexts />
         </StyledProfile>
       )}
     </>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
 
 const StyledProfile = styled.div`
   font-family: ${fontProfile + fontsBackUp};
@@ -30,7 +30,7 @@ const StyledProfile = styled.div`
   display: flex;
   align-items: center;
   padding: 0.1rem 0.5rem 0.5rem 0.5rem;
-`
+`;
 const StyledProfileHome = styled.div`
   font-family: ${fontProfile + fontsBackUp};
   display: flex;
@@ -41,4 +41,4 @@ const StyledProfileHome = styled.div`
   @media (max-width: 500px) {
     padding: 0rem 0.5rem;
   }
-`
+`;
