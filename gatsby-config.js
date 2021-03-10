@@ -1,5 +1,5 @@
-const config = require('./content/meta/config');
-const rss = require('./gatsby-rss');
+const config = require('./content/meta/config')
+const rss = require('./gatsby-rss')
 
 module.exports = {
   siteMetadata: config,
@@ -19,24 +19,24 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/pages`,
-      },
+        path: `${__dirname}/content/pages`
+      }
     },
 
     // Read markdown/mdx files
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/posts`,
-      },
+        path: `${__dirname}/content/posts`
+      }
     },
 
     // Read projects files
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/projects`,
-      },
+        path: `${__dirname}/content/projects`
+      }
     },
 
     // Read images
@@ -44,8 +44,8 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'static',
-        path: `${__dirname}/static`,
-      },
+        path: `${__dirname}/static`
+      }
     },
 
     // Read dummy page
@@ -53,8 +53,8 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'dummy',
-        path: `${__dirname}/src/z_`,
-      },
+        path: `${__dirname}/src/z_`
+      }
     },
 
     // mdx support
@@ -66,8 +66,8 @@ module.exports = {
           {
             resolve: 'gatsby-remark-code-titles',
             options: {
-              className: 'code-title-custom',
-            },
+              className: 'code-title-custom'
+            }
           },
 
           // Process images in markdown
@@ -76,52 +76,51 @@ module.exports = {
             options: {
               maxWidth: config.maxWidth,
               backgroundColor: 'transparent',
-              linkImagesToOriginal: false,
-            },
+              linkImagesToOriginal: false
+            }
           },
 
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
-              className: 'anchor-heading',
-            },
+              className: 'anchor-heading'
+            }
           },
 
           {
             resolve: 'gatsby-remark-copy-linked-files',
             options: {
               destinationDir: `${__dirname}/content/posts`,
-              ignoreFileExtensions: ['png', 'jpg', 'jpeg', 'bmp', 'tiff'],
-            },
-          },
-        ],
-      },
+              ignoreFileExtensions: ['png', 'jpg', 'jpeg', 'bmp', 'tiff']
+            }
+          }
+        ]
+      }
     },
-
 
     // Using svg as component
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /static/,
-        },
-      },
+          include: /static/
+        }
+      }
     },
 
     {
       resolve: 'gatsby-transformer-sharp',
       options: {
         // Removes warnings trying to use non-gatsby image in markdown
-        checkSupportedExtensions: false,
-      },
+        checkSupportedExtensions: false
+      }
     },
 
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: config.gaTrackingId,
-      },
+        trackingId: config.gaTrackingId
+      }
     },
 
     {
@@ -132,19 +131,19 @@ module.exports = {
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
-              className: 'anchor-heading',
-            },
+              className: 'anchor-heading'
+            }
           },
           {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: config.maxWidth,
               backgroundColor: 'transparent',
-              linkImagesToOriginal: false,
-            },
-          },
-        ],
-      },
+              linkImagesToOriginal: false
+            }
+          }
+        ]
+      }
     },
 
     {
@@ -154,10 +153,8 @@ module.exports = {
         short_name: 'blog',
         start_url: '/',
         display: 'minimal-ui',
-        icon: config.faviconSrc, // This path is relative to the root of the site.
-      },
-    },
-
-
-  ],
-};
+        icon: config.faviconSrc // This path is relative to the root of the site.
+      }
+    }
+  ]
+}

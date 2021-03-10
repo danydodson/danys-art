@@ -1,37 +1,37 @@
 /* Code block stylings based on main theme */
-import { createGlobalStyle } from 'styled-components';
-import { setThemeVars } from '../../../util/theme-helper';
-import config from '../../../../content/meta/config';
-import configStyles from '../../../../content/meta/styles';
+import { createGlobalStyle } from 'styled-components'
+import { setThemeVars } from '../../../util/theme-helper'
+import config from '../../../../content/meta/config'
+import configStyles from '../../../../content/meta/styles'
 
-const bgColor = () => setThemeVars('#f6f8fa !important', '#2d323e !important');
-const bgColorBorder = () => setThemeVars('#e8e6ef !important', '#43485f !important');
+const bgColor = () => setThemeVars('#f6f8fa !important', '#2d323e !important')
+const bgColorBorder = () => setThemeVars('#e8e6ef !important', '#43485f !important')
 
-const base0 = () => setThemeVars('#000 !important', '#ddd !important');
-const base1 = () => setThemeVars('#d73a49 !important', '#fa69e5 !important');
-const base2 = () => setThemeVars('#220b83 !important', '#63fa83 !important');
-const base3 = () => setThemeVars('#6f42c0 !important', '#f5ff98 !important');
-const base4 = () => setThemeVars('#005cc5 !important', '#6ad7f9 !important');
-const base5 = () => setThemeVars('#5b581a !important', '#d2ceab !important');
-const base6 = () => setThemeVars('#22863a !important', '#e48080 !important');
-const base7 = () => setThemeVars('#22863a !important', '#e48080 !important');
+const base0 = () => setThemeVars('#000 !important', '#ddd !important')
+const base1 = () => setThemeVars('#d73a49 !important', '#fa69e5 !important')
+const base2 = () => setThemeVars('#220b83 !important', '#63fa83 !important')
+const base3 = () => setThemeVars('#6f42c0 !important', '#f5ff98 !important')
+const base4 = () => setThemeVars('#005cc5 !important', '#6ad7f9 !important')
+const base5 = () => setThemeVars('#5b581a !important', '#d2ceab !important')
+const base6 = () => setThemeVars('#22863a !important', '#e48080 !important')
+const base7 = () => setThemeVars('#22863a !important', '#e48080 !important')
 
-const base99 = () => setThemeVars('#248537 !important', '#63fa83 !important'); // Token inserted
-const base98 = () => setThemeVars('#8e3232 !important', '#e48080 !important'); // Token deleted
+const base99 = () => setThemeVars('#248537 !important', '#63fa83 !important') // Token inserted
+const base98 = () => setThemeVars('#8e3232 !important', '#e48080 !important') // Token deleted
 
-const inlineBg = () => setThemeVars('#f1f1f1 !important', '#3b3948 !important');
-const inlineColor = () => setThemeVars('#de498d !important', '#ca6c9a !important');
+const inlineBg = () => setThemeVars('#f1f1f1 !important', '#3b3948 !important')
+const inlineColor = () => setThemeVars('#de498d !important', '#ca6c9a !important')
 
-const highlight = () => setThemeVars('#e7e8ec !important', '#353e50 !important');
+const highlight = () => setThemeVars('#e7e8ec !important', '#353e50 !important')
 
-const selectionColor = () => setThemeVars('#ccf1fb !important', '#073642 !important');
+const selectionColor = () => setThemeVars('#ccf1fb !important', '#073642 !important')
 
 // Copy Button Colors
-const copyBtnBg = () => setThemeVars('#efefef !important', '#3b3d46 !important');
-const copyBtnColor = () => setThemeVars('#9c9c9c !important', '#888598 !important');
-const copyBtnColorHover = () => setThemeVars('#111 !important', '#b7b5bf !important');
+const copyBtnBg = () => setThemeVars('#efefef !important', '#3b3d46 !important')
+const copyBtnColor = () => setThemeVars('#9c9c9c !important', '#888598 !important')
+const copyBtnColorHover = () => setThemeVars('#111 !important', '#b7b5bf !important')
 
-const fontColor = () => setThemeVars(`${configStyles.fontColorLight} !important`, `${configStyles.fontColorDark} !important`);
+const fontColor = () => setThemeVars(`${configStyles.fontColorLight} !important`, `${configStyles.fontColorDark} !important`)
 
 // Code block styling for light/dark theme
 const codeBlockStyles = createGlobalStyle`
@@ -179,6 +179,6 @@ const codeBlockStyles = createGlobalStyle`
       font-size: 85%;
     }
   }
-`;
+`
 
-export default codeBlockStyles;
+export default codeBlockStyles

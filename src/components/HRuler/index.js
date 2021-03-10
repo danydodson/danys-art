@@ -1,14 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const HRuler = ({ verticalMargin, widthInPercent, ...otherProps }) => {
   // Set defaults
-  const width = widthInPercent ? `${widthInPercent}%` : '100%';
-  const margin = verticalMargin ? `${verticalMargin} auto` : '0.5rem auto';
-  return <StyledHRuler className="custom-hr" width={width} margin={margin} {...otherProps} />;
-};
+  const width = widthInPercent ? `${widthInPercent}%` : '100%'
+  const margin = verticalMargin ? `${verticalMargin} auto` : '0.5rem auto'
+  return <StyledHRuler className='custom-hr' width={width} margin={margin} {...otherProps} />
+}
 
-export default HRuler;
+export default HRuler
 
 const StyledHRuler = styled.hr`
   display: block;
@@ -18,4 +18,4 @@ const StyledHRuler = styled.hr`
   border-top-style: solid;
   width: ${(props) => props.width};
   margin: ${(props) => props.margin};
-`;
+`

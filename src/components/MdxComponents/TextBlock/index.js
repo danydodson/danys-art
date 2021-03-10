@@ -1,30 +1,30 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { theme } from '../../Shared/styles-global';
-import { setThemeVars } from '../../../util/theme-helper';
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import { theme } from '../../Shared/styles-global'
+import { setThemeVars } from '../../../util/theme-helper'
 // Icons
-import Warning from '../../../../static/svgs/warning.svg';
-import Success from '../../../../static/svgs/success.svg';
-import Info from '../../../../static/svgs/info.svg';
-import Stop from '../../../../static/svgs/stop.svg';
+import Warning from '../../../../static/svgs/warning.svg'
+import Success from '../../../../static/svgs/success.svg'
+import Info from '../../../../static/svgs/info.svg'
+import Stop from '../../../../static/svgs/stop.svg'
 
 const TextBlock = ({ theme, children, padding = '2rem 1.5rem' }) => {
-  let iconElement;
+  let iconElement
 
   switch (theme) {
     case 'success':
-      iconElement = <Success />;
-      break;
+      iconElement = <Success />
+      break
     case 'warning':
-      iconElement = <Warning />;
-      break;
+      iconElement = <Warning />
+      break
     case 'danger':
-      iconElement = <Stop />;
-      break;
+      iconElement = <Stop />
+      break
     // For 'info' & 'primary'
     default:
-      iconElement = <Info />;
+      iconElement = <Info />
   }
 
   return (
@@ -32,37 +32,37 @@ const TextBlock = ({ theme, children, padding = '2rem 1.5rem' }) => {
       <StyledIconWrap theme={theme}>{iconElement}</StyledIconWrap>
       {children}
     </StyledTextBlock>
-  );
-};
+  )
+}
 
-export default TextBlock;
+export default TextBlock
 
 // Check props
 TextBlock.propTypes = {
-  theme: PropTypes.string.isRequired,
-};
+  theme: PropTypes.string.isRequired
+}
 
 // Themes
 const color = {
   success: '#46c763',
   info: '#17a2b8',
   warning: '#ffc107',
-  danger: '#ee5252',
-};
+  danger: '#ee5252'
+}
 
 const bgColorLight = {
   success: '#e0f8e5',
   info: '#daf1f4',
   warning: '#f8f1e4',
-  danger: '#f8e4e4',
-};
+  danger: '#f8e4e4'
+}
 
 const bgColorDark = {
   success: '#3f774b',
   info: '#2e5d64',
   warning: '#796733',
-  danger: '#693434',
-};
+  danger: '#693434'
+}
 
 const StyledTextBlock = styled.div`
   position: relative;
@@ -78,7 +78,7 @@ const StyledTextBlock = styled.div`
   /* Based on chosen theme */
   border-color: ${(props) => color[props.theme]};
   background: ${(props) => setThemeVars(bgColorLight[props.theme], bgColorDark[props.theme])};
-`;
+`
 
 const StyledIconWrap = styled.div`
   position: absolute;
@@ -95,4 +95,4 @@ const StyledIconWrap = styled.div`
     /* Theme */
     fill: ${(props) => color[props.theme]};
   }
-`;
+`

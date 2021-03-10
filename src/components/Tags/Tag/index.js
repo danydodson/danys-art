@@ -1,25 +1,25 @@
-import React from 'react';
-import styled from 'styled-components';
-import { theme } from '../../Shared/styles-global';
-import { isMobile } from 'react-device-detect';
+import React from 'react'
+import styled from 'styled-components'
+import { theme } from '../../Shared/styles-global'
+import { isMobile } from 'react-device-detect'
 
 const Tag = ({ title, selectTag, selectedTag, unmountTagsAnimation }) => {
   const handleClick = () => {
-    selectTag(title);
-  };
+    selectTag(title)
+  }
 
   return !isMobile ? (
-    <StyledTagVertical className="tag-vertical" onClick={handleClick} selected={selectedTag === title}>
+    <StyledTagVertical className='tag-vertical' onClick={handleClick} selected={selectedTag === title}>
       {title}
     </StyledTagVertical>
   ) : (
-    <StyledTagHorizontal className="tag-horizontal" onClick={handleClick} selected={selectedTag === title}>
+    <StyledTagHorizontal className='tag-horizontal' onClick={handleClick} selected={selectedTag === title}>
       {title}
     </StyledTagHorizontal>
-  );
-};
+  )
+}
 
-export default Tag;
+export default Tag
 
 const StyledTagVertical = styled.div`
   cursor: pointer;
@@ -32,7 +32,7 @@ const StyledTagVertical = styled.div`
   font-weight: ${(props) => (props.selected ? 'bold' : '400')};
   position: sticky;
   transition: none;
-`;
+`
 
 const StyledTagHorizontal = styled.div`
   position: relative;
@@ -45,4 +45,4 @@ const StyledTagHorizontal = styled.div`
   font-weight: ${(props) => (props.selected ? 'bold' : '400')};
   white-space: nowrap;
   transition: none;
-`;
+`

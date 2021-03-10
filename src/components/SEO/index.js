@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+import { useStaticQuery, graphql } from 'gatsby'
 
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
@@ -15,10 +15,10 @@ function SEO({ description, lang, meta, title }) {
           }
         }
       }
-    `,
-  );
+    `
+  )
 
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = description || site.siteMetadata.description
 
   return (
     <>
@@ -29,64 +29,64 @@ function SEO({ description, lang, meta, title }) {
         meta={[
           {
             name: 'description',
-            content: metaDescription,
+            content: metaDescription
           },
           {
             name: 'viewport',
-            content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0',
+            content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
           },
           {
             property: 'og:title',
-            content: title,
+            content: title
           },
           {
             property: 'og:description',
-            content: metaDescription,
+            content: metaDescription
           },
           {
             property: 'og:type',
-            content: 'website',
+            content: 'website'
           },
           {
             name: 'twitter:card',
-            content: 'summary',
+            content: 'summary'
           },
           {
             name: 'twitter:creator',
-            content: site.siteMetadata.author,
+            content: site.siteMetadata.author
           },
           {
             name: 'twitter:title',
-            content: title,
+            content: title
           },
           {
             name: 'twitter:description',
-            content: metaDescription,
-          },
+            content: metaDescription
+          }
         ].concat(meta)}
       />
       <Helmet>
         {/* Google Font: IBM Plex Sans, Oxanium */}
-        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Oxanium&display=swap" rel="stylesheet" />
+        <link href='https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Oxanium&display=swap' rel='stylesheet' />
 
         {/* Facebook comments moderation */}
-        <meta property="fb:app_id" content={process.env.FB_APP_ID} />
+        <meta property='fb:app_id' content={process.env.FB_APP_ID} />
       </Helmet>
     </>
-  );
+  )
 }
 
 SEO.defaultProps = {
   lang: 'en',
   meta: [],
-  description: '',
-};
+  description: ''
+}
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
-};
+  title: PropTypes.string.isRequired
+}
 
-export default SEO;
+export default SEO

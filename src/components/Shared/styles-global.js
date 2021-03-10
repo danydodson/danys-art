@@ -1,8 +1,8 @@
-import { createGlobalStyle, keyframes } from 'styled-components';
-import { isMobile } from 'react-device-detect';
-import { setThemeVars } from '../../util/theme-helper';
-import config from '../../../content/meta/config';
-import configStyles from '../../../content/meta/styles';
+import { createGlobalStyle, keyframes } from 'styled-components'
+import { isMobile } from 'react-device-detect'
+import { setThemeVars } from '../../util/theme-helper'
+import config from '../../../content/meta/config'
+import configStyles from '../../../content/meta/styles'
 
 const globalVar = {
   primaryColor: '#fff',
@@ -33,32 +33,32 @@ const globalVar = {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;`,
-  curTheme: '',
-};
+  curTheme: ''
+}
 
 // global variables are passed down to themes to be used in other styled components
 export const theme = {
-  ...globalVar,
-};
+  ...globalVar
+}
 
-let profileHomeBorder = () => setThemeVars('#ddd', '#333');
-if (isMobile) profileHomeBorder = 'transparent';
+let profileHomeBorder = () => setThemeVars('#ddd', '#333')
+if (isMobile) profileHomeBorder = 'transparent'
 
 const glowing = keyframes`
     0% { background-position: 0 0; }
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
-`;
+`
 
-const foregroundColor = () => setThemeVars(theme.fontColorLight, theme.fontColorDark);
+const foregroundColor = () => setThemeVars(theme.fontColorLight, theme.fontColorDark)
 
-const scrollBarColor = () => setThemeVars(configStyles.scrollbarColorLight, configStyles.scrollbarColorDark);
+const scrollBarColor = () => setThemeVars(configStyles.scrollbarColorLight, configStyles.scrollbarColorDark)
 
-const scrollBarBg = () => setThemeVars(configStyles.scrollbarBgLight, configStyles.scrollbarBgDark);
+const scrollBarBg = () => setThemeVars(configStyles.scrollbarBgLight, configStyles.scrollbarBgDark)
 
-const scrollBarHover = () => setThemeVars(configStyles.scrollbarHoverLight, configStyles.scrollbarHoverDark);
+const scrollBarHover = () => setThemeVars(configStyles.scrollbarHoverLight, configStyles.scrollbarHoverDark)
 
-const underlineColor = () => setThemeVars(configStyles.underlineColorLight, configStyles.underlineColorDark);
+const underlineColor = () => setThemeVars(configStyles.underlineColorLight, configStyles.underlineColorDark)
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -381,4 +381,4 @@ export const GlobalStyles = createGlobalStyle`
   th {
     vertical-align: middle;
   }
-`;
+`

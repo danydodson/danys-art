@@ -1,26 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
-import styled, { withTheme } from 'styled-components';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
+import styled, { withTheme } from 'styled-components'
 
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { faGithub, faFacebook, faInstagram, faTwitter, faLinkedin, faMedium } from '@fortawesome/free-brands-svg-icons';
-import HeaderIcon from '../HeaderIcon';
-import ProgressBar from './ProgressBar';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
+import { faGithub, faFacebook, faInstagram, faTwitter, faLinkedin, faMedium } from '@fortawesome/free-brands-svg-icons'
+import HeaderIcon from '../HeaderIcon'
+import ProgressBar from './ProgressBar'
 
-import config from '../../../content/meta/config';
-import configStyles from '../../../content/meta/styles';
+import config from '../../../content/meta/config'
+import configStyles from '../../../content/meta/styles'
 
 const Header = ({ siteTitle, showTitle, isPostTemplate }) => {
   return (
-    <StyledMainHeader className="main-header">
+    <StyledMainHeader className='main-header'>
       {/* Google AdSense */}
-      {config.googleAdSenseId && config.googleAdSenseId !== '' && <script data-ad-client={config.googleAdSenseId} async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />}
+      {config.googleAdSenseId && config.googleAdSenseId !== '' && <script data-ad-client={config.googleAdSenseId} async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' />}
 
       {isPostTemplate && config.useScrollIndicator && <ProgressBar />}
 
-      <StyledMainHeaderInner className="main-header-inner">
-        <h1 style={{ fontSize: '1.5rem' }}>{showTitle && <Link to="/">{`${siteTitle}`}</Link>}</h1>
+      <StyledMainHeaderInner className='main-header-inner'>
+        <h1 style={{ fontSize: '1.5rem' }}>{showTitle && <Link to='/'>{`${siteTitle}`}</Link>}</h1>
         <StyledMediaIcons>
           <HeaderIcon accountInfo={config.socialMediaLinks.github} mediaName={'github'} preHref={'https://github.com/'} icon={faGithub} />
 
@@ -38,25 +38,25 @@ const Header = ({ siteTitle, showTitle, isPostTemplate }) => {
         </StyledMediaIcons>
       </StyledMainHeaderInner>
     </StyledMainHeader>
-  );
-};
+  )
+}
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
+  siteTitle: PropTypes.string
+}
 
 Header.defaultProps = {
-  siteTitle: '',
-};
+  siteTitle: ''
+}
 
-export default withTheme(Header);
+export default withTheme(Header)
 
 const StyledMainHeader = styled.header`
   font-family: ${configStyles.fontMain + configStyles.fontsBackUp};
   height: 55px;
   margin-top: ${config.useScrollIndicator ? '-5px' : '0'};
   margin-bottom: 1rem;
-`;
+`
 
 const StyledMainHeaderInner = styled.div`
   display: flex;
@@ -69,7 +69,7 @@ const StyledMainHeaderInner = styled.div`
   h1 {
     font-weight: 400;
   }
-`;
+`
 
 const StyledMediaIcons = styled.div`
   display: flex;
@@ -83,4 +83,4 @@ const StyledMediaIcons = styled.div`
       margin: 0 0.15rem;
     }
   }
-`;
+`

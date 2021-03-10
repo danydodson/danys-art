@@ -1,15 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'gatsby';
-import { enableAbout as enabled, author } from '../../../content/meta/config';
+import React from 'react'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
+import { enableAbout as enabled, author } from '../../../content/meta/config'
 
 const AboutLink = () => {
   return (
     <>
       {enabled ? (
-        <StyledMainCardName className="main-card-name">
+        <StyledMainCardName className='main-card-name'>
           <h2>
-            <Link to="/about">{author}</Link>
+            <Link to='/about'>{author}</Link>
           </h2>
         </StyledMainCardName>
       ) : (
@@ -18,10 +18,10 @@ const AboutLink = () => {
         </StyledMainCardNameAboutDisabled>
       )}
     </>
-  );
-};
+  )
+}
 
-export default AboutLink;
+export default AboutLink
 
 const StyledMainCardName = styled.div`
   display: inline-block;
@@ -29,11 +29,11 @@ const StyledMainCardName = styled.div`
   h2 {
     padding: 0.2rem 0.4rem;
   }
-`;
+`
 
 const StyledMainCardNameAboutDisabled = styled.div`
   display: inline-block;
   h2 {
     padding: 0.2rem 0rem;
   }
-`;
+`

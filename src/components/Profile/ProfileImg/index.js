@@ -1,33 +1,33 @@
-import React from 'react';
-import styled from 'styled-components';
-import Image from '../../Image';
-import { theme } from '../../Shared/styles-global';
+import React from 'react'
+import styled from 'styled-components'
+import Image from '../../Image'
+import { theme } from '../../Shared/styles-global'
 
 const ProfileImage = ({ home }) => {
   return (
     <>
       {home ? (
-        <StyledImageHome className="profile-image-home">
-          <StyledInner className="profile-image-inner">
-            <StyledInnerInner className="profile-image-inner-inner" />
+        <StyledImageHome className='profile-image-home'>
+          <StyledInner className='profile-image-inner'>
+            <StyledInnerInner className='profile-image-inner-inner' />
           </StyledInner>
-          <Image objectFit="cover" objectPosition="50% 50%" alt="profileImage" />
+          <Image objectFit='cover' objectPosition='50% 50%' alt='profileImage' />
         </StyledImageHome>
       ) : (
-        <StyledImage className="profile-image">
-          <StyledInner className="profile-image-inner">
-            <StyledInnerInner className="profile-image-inner-inner" />
+        <StyledImage className='profile-image'>
+          <StyledInner className='profile-image-inner'>
+            <StyledInnerInner className='profile-image-inner-inner' />
           </StyledInner>
-          <Image objectFit="cover" objectPosition="50% 50%" alt="profileImage" />
+          <Image objectFit='cover' objectPosition='50% 50%' alt='profileImage' />
         </StyledImage>
       )}
     </>
-  );
-};
+  )
+}
 
-export default ProfileImage;
+export default ProfileImage
 
-const profileImageSize = '80px';
+const profileImageSize = '80px'
 
 const StyledImage = styled.div`
   position: relative;
@@ -37,7 +37,7 @@ const StyledImage = styled.div`
   div {
     border-radius: 50%;
   }
-`;
+`
 const StyledImageHome = styled.div`
   position: absolute;
   top: -22%;
@@ -49,7 +49,7 @@ const StyledImageHome = styled.div`
   div {
     border-radius: 50%;
   }
-`;
+`
 
 // Draw line around image
 const StyledInner = styled.div`
@@ -60,7 +60,7 @@ const StyledInner = styled.div`
   width: 94px;
   height: 94px;
   border: 1px solid ${theme.mintColor};
-`;
+`
 // Hide some of ^ line with rectangle
 const StyledInnerInner = styled.div`
   position: absolute;
@@ -71,4 +71,4 @@ const StyledInnerInner = styled.div`
   width: 100px;
   height: 30px;
   border-radius: 0 !important;
-`;
+`
